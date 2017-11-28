@@ -1,0 +1,12 @@
+1/
+
+npm install -g cordova ionic
+
+
+2/ 
+
+npm install
+
+3/
+
+ionic serve

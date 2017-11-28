@@ -1,0 +1,22 @@
+page-welcome {
+    .content {
+        background-size: 100% auto;
+        h5 {
+            margin-top: 50px;
+            text-align: center
+        }
+        .logo-row {
+            padding-top: 60px;
+            padding-bottom: 30px;
+        }
+        .btn-row {
+            padding-top: 30px;
+        }
+        .login-btn {
+            background-color: #ff3b30
+        }
+        .signup-btn {
+            background-color: #007aff
+        }
+    }
+}

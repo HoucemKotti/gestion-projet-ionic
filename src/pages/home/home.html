@@ -1,0 +1,26 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+        <ion-title>Accueil</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <h3>Bienvenu !</h3>
+
+    <p>
+        {{ data.nom }} {{data.prenom}}
+    </p>
+
+
+    <div *ngIf='data.type == 4'>
+        <ion-card>
+            <ion-card-content>
+                Votre inscription est en cours de validation,<br> Merci de votre collaboration.
+            </ion-card-content>
+        </ion-card>
+    </div>
+
+</ion-content>

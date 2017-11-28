@@ -1,0 +1,170 @@
+<!--
+  Generated template for the SettingProfilePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+        <ion-title>Mon compte</ion-title>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+    <div *ngIf='success != ""'>
+        <ion-card>
+            <ion-card-content class="success-content">
+                Modification avec succes
+            </ion-card-content>
+        </ion-card>
+    </div>
+
+    <ng-template *ngIf="user.type==1;then etudiant; "></ng-template>
+    <ng-template *ngIf="user.type==2;then enseignant; "></ng-template>
+    <ng-template *ngIf="user.type==3 || user.type==4;then entreprise;"></ng-template>
+
+
+    <ng-template #etudiant>
+        <!--<form (ngSubmit)="submitEtudiant()">-->
+
+        <form (ngSubmit)="submitEtudiant()" #registerForm="ngForm">
+            <ion-item>
+                <ion-label color="primary">Nom</ion-label>
+                <ion-input type="text" [(ngModel)]="user.nom" name="nom" required></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary">Prenom</ion-label>
+                <ion-input type="text" [(ngModel)]="user.prenom" name="prenom" required></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary">Cin</ion-label>
+                <ion-input type="number" [(ngModel)]="user.cin" name="cin" required></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary">Email</ion-label>
+                <ion-input type="email" [(ngModel)]="user.email" name="email" required></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary">Tel</ion-label>
+                <ion-input type="number" [(ngModel)]="user.tel" name="tel" required></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary">Date de naissance</ion-label>
+                <ion-datetime [(ngModel)]="user.date_naiss" name="dateNess" required></ion-datetime>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary">Cycle </ion-label>
+                <ion-input type="text" [(ngModel)]="user.cycle_etude" name="cy_etud" required></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary">Niveau d'étude</ion-label>
+                <ion-input type="text" [(ngModel)]="user.niveau_etude" name="niv_etud"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary">Specialite</ion-label>
+                <ion-input type="text" [(ngModel)]="user.specialite" name="specialite"></ion-input>
+            </ion-item>
+
+            <div *ngIf='erreur != ""'>
+                <ion-card>
+                    <ion-card-content class="erreur-content">
+                        {{erreur}}
+                    </ion-card-content>
+                </ion-card>
+            </div>
+            <button ion-button type="submit" block [disabled]="!registerForm.form.valid">Modifier</button>
+        </form>
+    </ng-template>
+
+    <ng-template #entreprise>
+        <form (ngSubmit)="submitEntreprise()" #registerFormEntreprise="ngForm">
+            <ion-item>
+                <ion-label color="primary">Nom</ion-label>
+                <ion-input type="text" [(ngModel)]="user.nom" name="nom" required></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary">Prenom</ion-label>
+                <ion-input type="text" [(ngModel)]="user.prenom" name="prenom" required></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary">Cin</ion-label>
+                <ion-input type="number" [(ngModel)]="user.cin" name="cin" required></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary">Email</ion-label>
+                <ion-input type="email" [(ngModel)]="user.email" name="email" required></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary">Tel</ion-label>
+                <ion-input type="number" [(ngModel)]="user.tel" name="tel"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary">Nom Entreprise</ion-label>
+                <ion-input [(ngModel)]="user.nom_ent" name="nomEntreprise" required></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary">Tel Entreprise </ion-label>
+                <ion-input type="text" [(ngModel)]="user.tel_ent" name="telEntreprise" required></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary">Adresse Entreprise</ion-label>
+                <ion-input type="text" [(ngModel)]="user.adresse_ent" name="adresseEntreprise" required></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary">Fax Entreprise</ion-label>
+                <ion-input type="number" [(ngModel)]="user.fax_ent" name="faxEntreprise"></ion-input>
+            </ion-item>
+
+            <div *ngIf='erreur != ""'>
+                <ion-card>
+                    <ion-card-content class="erreur-content">
+                        {{erreur}}
+                    </ion-card-content>
+                </ion-card>
+            </div>
+            <button ion-button type="submit" block [disabled]="!registerFormEntreprise.form.valid">Modifier</button>
+        </form>
+    </ng-template>
+
+    <ng-template #enseignant>
+        <form (ngSubmit)="submitEnseignant()" #registerFormEnseignante="ngForm">
+            <ion-item>
+                <ion-label color="primary">Nom</ion-label>
+                <ion-input type="text" [(ngModel)]="user.nom" name="nom" required></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary">Prenom</ion-label>
+                <ion-input type="text" [(ngModel)]="user.prenom" name="prenom" required></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary">Cin</ion-label>
+                <ion-input type="number" [(ngModel)]="user.cin" name="cin" required></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary">Email</ion-label>
+                <ion-input type="email" [(ngModel)]="user.email" name="email" required></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary">Tel</ion-label>
+                <ion-input type="number" [(ngModel)]="user.tel" name="tel" required></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary">Grade</ion-label>
+                <ion-input type="text" [(ngModel)]="user.grade" name="grade" required></ion-input>
+            </ion-item>
+
+            <div *ngIf='erreur != ""'>
+                <ion-card>
+                    <ion-card-content class="erreur-content">
+                        {{erreur}}
+                    </ion-card-content>
+                </ion-card>
+            </div>
+            <button ion-button type="submit" block [disabled]="!registerFormEnseignante.form.valid">Modifier</button>
+        </form>
+    </ng-template>
+</ion-content>

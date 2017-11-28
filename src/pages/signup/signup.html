@@ -1,0 +1,210 @@
+<!--
+  Generated template for the SignupPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>S'inscrire</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+
+<ion-content padding>
+    <ng-template *ngIf="status=='Status';then Status; "></ng-template>
+    <ng-template *ngIf="status=='enseignant';then enseignant; "></ng-template>
+    <ng-template *ngIf="status=='etudiant';then etudiant; "></ng-template>
+    <ng-template *ngIf="status=='entreprise';then entreprise;"></ng-template>
+    <ng-template #Status>
+        Choisir votre status
+        <ion-item>
+            <ion-label>Status</ion-label>
+            <ion-select name="etat" [(ngModel)]="status" (ngModelChange)="print()">
+                <option disabled selected value="-1">---- Votre Status ----</option>
+                <ion-option *ngFor="let statut of statuses" [value]="statut.value">{{statut.name}}</ion-option>
+            </ion-select>
+        </ion-item>
+    </ng-template>
+    <ng-template #etudiant>
+        <!--<form (ngSubmit)="submitEtudiant()">-->
+
+        <form (ngSubmit)="submitEtudiant()" #registerForm="ngForm">
+            <ion-item>
+                <ion-label color="primary">Nom</ion-label>
+                <ion-input type="text" [(ngModel)]="nom" name="nom" required></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary">Prenom</ion-label>
+                <ion-input type="text" [(ngModel)]="prenom" name="prenom" required></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary">Cin</ion-label>
+                <ion-input type="number" [(ngModel)]="cin" name="cin" required></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary">Email</ion-label>
+                <ion-input type="email" [(ngModel)]="email" name="email" required></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary">Mot de passe</ion-label>
+                <ion-input type="password" [(ngModel)]="pass" name="pass" required></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary">Confirmer mot de passe</ion-label>
+                <ion-input type="password" [(ngModel)]="comf_pass" name="comf_pass" required></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary">Tel</ion-label>
+                <ion-input type="number" [(ngModel)]="tel" name="tel" required></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary">Date de naissance</ion-label>
+                <ion-datetime [(ngModel)]="dateNess" name="dateNess" required></ion-datetime>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary">Cycle </ion-label>
+                <ion-input type="text" [(ngModel)]="cy_etud" name="cy_etud" required></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary">Niveau d'étude</ion-label>
+                <ion-input type="text" [(ngModel)]="niv_etud" name="niv_etud" required></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary">Specialite</ion-label>
+                <ion-input type="text" [(ngModel)]="specialite" name="specialite"></ion-input>
+            </ion-item>
+
+            <div *ngIf='erreur != ""'>
+                <ion-card>
+                    <ion-card-content>
+                        {{erreur}}
+                    </ion-card-content>
+                </ion-card>
+            </div>
+            <button ion-button type="submit" block [disabled]="!registerForm.form.valid">Inscription</button>
+        </form>
+        <button ion-button color="dark" (click)="changeStatut()" block>
+      Return
+    </button>
+        <button ion-button class="register-btn" block clear (click)="createAccount()">Déja inscrire, Connexion</button>
+
+    </ng-template>
+
+    <ng-template #entreprise>
+        <form (ngSubmit)="submitEntreprise()" #registerFormEntreprise="ngForm">
+            <ion-item>
+                <ion-label color="primary">Nom</ion-label>
+                <ion-input type="text" [(ngModel)]="nom" name="nom" required></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary">Prenom</ion-label>
+                <ion-input type="text" [(ngModel)]="prenom" name="prenom" required></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary">Cin</ion-label>
+                <ion-input type="number" [(ngModel)]="cin" name="cin" required></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary">Email</ion-label>
+                <ion-input type="email" [(ngModel)]="email" name="email" required></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary">Mot de passe</ion-label>
+                <ion-input type="password" [(ngModel)]="pass" name="pass" required></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary">Confirmer mot de passe</ion-label>
+                <ion-input type="password" [(ngModel)]="comf_pass" name="comf_pass" required></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary">Tel</ion-label>
+                <ion-input type="number" [(ngModel)]="tel" name="tel"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary">Nom Entreprise</ion-label>
+                <ion-input [(ngModel)]="nomEntreprise" name="nomEntreprise" required></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary">Tel Entreprise </ion-label>
+                <ion-input type="text" [(ngModel)]="telEntreprise" name="telEntreprise" required></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary">Adresse Entreprise</ion-label>
+                <ion-input type="text" [(ngModel)]="adresseEntreprise" name="adresseEntreprise" required></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary">Fax Entreprise</ion-label>
+                <ion-input type="number" [(ngModel)]="faxEntreprise" name="faxEntreprise"></ion-input>
+            </ion-item>
+
+            <div *ngIf='erreur != ""'>
+                <ion-card>
+                    <ion-card-content>
+                        {{erreur}}
+                    </ion-card-content>
+                </ion-card>
+            </div>
+            <button ion-button type="submit" block [disabled]="!registerFormEntreprise.form.valid">Inscription</button>
+        </form>
+        <button ion-button color="dark" (click)="changeStatut()" block>
+      Return
+    </button>
+        <button ion-button class="register-btn" block clear (click)="createAccount()">Déja inscrire, Connexion</button>
+
+    </ng-template>
+
+    <ng-template #enseignant>
+        <form (ngSubmit)="submitEnseignant()" #registerFormEnseignante="ngForm">
+            <ion-item>
+                <ion-label color="primary">Nom</ion-label>
+                <ion-input type="text" [(ngModel)]="nom" name="nom" required></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary">Prenom</ion-label>
+                <ion-input type="text" [(ngModel)]="prenom" name="prenom" required></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary">Cin</ion-label>
+                <ion-input type="number" [(ngModel)]="cin" name="cin" required></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary">Email</ion-label>
+                <ion-input type="email" [(ngModel)]="email" name="email" required></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary">Mot de passe</ion-label>
+                <ion-input type="password" [(ngModel)]="pass" name="pass" required></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary">Confirmer mot de passe</ion-label>
+                <ion-input type="password" [(ngModel)]="comf_pass" name="comf_pass" required></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary">Tel</ion-label>
+                <ion-input type="number" [(ngModel)]="tel" name="tel"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary">Grade</ion-label>
+                <ion-input type="text" [(ngModel)]="grade" name="grade"></ion-input>
+            </ion-item>
+
+            <div *ngIf='erreur != ""'>
+                <ion-card>
+                    <ion-card-content>
+                        {{erreur}}
+                    </ion-card-content>
+                </ion-card>
+            </div>
+            <button ion-button type="submit" block [disabled]="!registerFormEnseignante.form.valid">Inscription</button>
+        </form>
+        <button ion-button color="dark" (click)="changeStatut()" block>
+      Return
+    </button>
+        <button ion-button class="register-btn" block clear (click)="createAccount()">Déja inscrire, Connexion</button>
+
+    </ng-template>
+</ion-content>
