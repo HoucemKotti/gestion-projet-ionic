@@ -12,6 +12,15 @@ import { SignupPage } from '../pages/signup/signup';
 import { SigninPage } from '../pages/signin/signin';
 import { SettingProfilePage } from '../pages/setting-profile/setting-profile';
 
+import { ListeDemEntreprisePage } from '../pages/liste-dem-entreprise/liste-dem-entreprise';
+import { ListeEnseignantPage } from '../pages/liste-enseignant/liste-enseignant';
+import { ListeEntreprisePage } from '../pages/liste-entreprise/liste-entreprise';
+import { ListeEtudiantPage } from '../pages/liste-etudiant/liste-etudiant';
+import { ListeStagePropPage } from '../pages/liste-stage-prop/liste-stage-prop';
+import { ListeStagePubPage } from '../pages/liste-stage-pub/liste-stage-pub';
+import { PubStagePage } from '../pages/pub-stage/pub-stage';
+
+
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -26,6 +35,14 @@ import { AuthServiceProvider } from '../providers/auth-service/auth-service';
     SignupPage,
     SigninPage,
     SettingProfilePage,
+    ListeDemEntreprisePage,
+    ListeEnseignantPage,
+    ListeEtudiantPage,
+    ListeStagePropPage,
+    ListeStagePubPage,
+    PubStagePage,
+    ListeEntreprisePage
+
   ],
   imports: [
     BrowserModule,
@@ -42,6 +59,13 @@ import { AuthServiceProvider } from '../providers/auth-service/auth-service';
     SignupPage,
     SigninPage,
     SettingProfilePage,
+    ListeDemEntreprisePage,
+    ListeEnseignantPage,
+    ListeEtudiantPage,
+    ListeStagePropPage,
+    ListeStagePubPage,
+    PubStagePage,
+    ListeEntreprisePage
   ],
   providers: [
     StatusBar,

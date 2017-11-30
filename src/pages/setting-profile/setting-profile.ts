@@ -112,10 +112,10 @@ export class SettingProfilePage {
           "email": this.user.email,
           "password": this.user.password,
           "tel": this.user.tel,
-          "nomEntreprise": this.user.nom_ent,
-          "telEntreprise": this.user.tel_ent,
-          "adresseEntreprise": this.user.adresse_ent,
-          "faxEntreprise": this.user.fax_ent,
+          "nom_ent": this.user.nom_ent,
+          "tel_ent": this.user.tel_ent,
+          "adresse_ent": this.user.adresse_ent,
+          "fax_ent": this.user.fax_ent,
         })
         .subscribe(
         (val) => {

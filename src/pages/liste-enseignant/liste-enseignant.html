@@ -1,0 +1,30 @@
+<!--
+  Generated template for the ListeEnseignantPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+
+    <ion-navbar>
+        <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Liste Enseignants</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-list>
+        <button ion-item *ngFor="let item of Enseignant">
+          <ion-icon ios="ios-contact" md="md-contact"></ion-icon>
+            {{item.nom}} {{item.prenom}} 
+            <div class="item-note" item-end>
+                {{item.grade}}
+              </div> 
+          </button>
+    </ion-list>
+</ion-content>

@@ -29,6 +29,7 @@ export class SigninPage {
     storage.get('user').then((val) => {
       if (val != null) {
         console.log(val);
+        window.location.reload();
         navCtrl.setRoot(HomePage);
       }
 
@@ -62,6 +63,7 @@ export class SigninPage {
             this.storage.set('user', res);
             console.log('user' + res);
             this.navCtrl.setRoot(HomePage);
+            window.location.reload()
           } else {
             this.showError("Vérifier email ou mot de passe");
           }

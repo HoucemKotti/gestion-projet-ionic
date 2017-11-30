@@ -73,6 +73,7 @@ export class SignupPage {
     storage.get('user').then((val) => {
       if (val != null) {
         console.log(val);
+        window.location.reload();
         navCtrl.setRoot(HomePage);
       }
 
@@ -119,7 +120,7 @@ export class SignupPage {
     }
     if (this.erreur == "") {
       this.showLoading();
-      this.http.post(vars.url+"/api/etudiant",
+      this.http.post(vars.url + "/api/etudiant",
         {
           "nom": this.nom,
           "prenom": this.prenom,
@@ -146,6 +147,7 @@ export class SignupPage {
               res => {
                 //this.currentUser = new User('Simon', 'saimon@devdactic.com', 'Simon', 'saimon@devdactic.com', 'Simon', 'saimon@devdactic.com', 'Simon', 'saimon@devdactic.com', 'Simon', 'saimon@devdactic.com');
                 this.storage.set('user', res);
+                window.location.reload();
                 this.navCtrl.setRoot(HomePage);
 
               }
@@ -189,7 +191,7 @@ export class SignupPage {
 
     if (this.erreur == "") {
       this.showLoading();
-      this.http.post(vars.url+"/api/entreprise",
+      this.http.post(vars.url + "/api/entreprise",
 
         {
           "nom": this.nom,
@@ -216,6 +218,7 @@ export class SignupPage {
             }).subscribe(
               res => {
                 this.storage.set('user', res);
+                window.location.reload();
                 this.navCtrl.setRoot(HomePage);
 
               }
@@ -251,7 +254,7 @@ export class SignupPage {
 
     if (this.erreur == "") {
       this.showLoading();
-      this.http.post(vars.url+"/api/enseignant",
+      this.http.post(vars.url + "/api/enseignant",
         {
           "nom": this.nom,
           "prenom": this.prenom,
@@ -275,6 +278,7 @@ export class SignupPage {
             }).subscribe(
               res => {
                 this.storage.set('user', res);
+                window.location.reload();
                 this.navCtrl.setRoot(HomePage);
 
               }

@@ -1,0 +1,42 @@
+<!--
+  Generated template for the ListeDemEntreprisePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar>
+        <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Liste demandes Entreprise</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-content padding>
+        <ion-list>
+            <!--<button ion-item *ngFor="let item of Entreprises">
+                    {{item.nom}} {{item.prenom}} 
+                    <div class="item-note" item-end>
+                        {{item.nom_ent}}
+                      </div> 
+                  </button>-->
+
+            <ion-item *ngFor="let item of Entreprises">
+                <h2>{{item.nom}} {{item.prenom}} </h2>
+                <h1>{{item.nom_ent}}</h1>
+                <button ion-button color="secondary" (click)="updateEntreprises(item.id)" icon-start item-end>
+                    <ion-icon name='checkmark'></ion-icon>
+                    Accepter
+                  </button><button ion-button color="danger" (click)="deleteEntreprises(item.id)" icon-start item-end>
+                      <ion-icon name='close'></ion-icon>
+                      Refuser
+                    </button>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-content>
