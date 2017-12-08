@@ -7,11 +7,11 @@ webpackJsonp([1],{
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SignupPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(42);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_Storage__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_Storage__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__signin_signin__ = __webpack_require__(106);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__home_home__ = __webpack_require__(43);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__vars__ = __webpack_require__(82);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__home_home__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__vars__ = __webpack_require__(31);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -271,7 +271,7 @@ var SignupPage = (function () {
     };
     SignupPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-signup',template:/*ion-inline-start:"E:\Projet\Ionic\gestion-projet-ionic\gestion-projet-ionic\src\pages\signup\signup.html"*/'<!--\n  Generated template for the SignupPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar>\n        <ion-title>S\'inscrire</ion-title>\n    </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n    <ng-template *ngIf="status==\'Status\';then Status; "></ng-template>\n    <ng-template *ngIf="status==\'enseignant\';then enseignant; "></ng-template>\n    <ng-template *ngIf="status==\'etudiant\';then etudiant; "></ng-template>\n    <ng-template *ngIf="status==\'entreprise\';then entreprise;"></ng-template>\n    <ng-template #Status>\n        Choisir votre status\n        <ion-item>\n            <ion-label>Status</ion-label>\n            <ion-select name="etat" [(ngModel)]="status" (ngModelChange)="print()">\n                <option disabled selected value="-1">---- Votre Status ----</option>\n                <ion-option *ngFor="let statut of statuses" [value]="statut.value">{{statut.name}}</ion-option>\n            </ion-select>\n        </ion-item>\n    </ng-template>\n    <ng-template #etudiant>\n        <!--<form (ngSubmit)="submitEtudiant()">-->\n\n        <form (ngSubmit)="submitEtudiant()" #registerForm="ngForm">\n            <ion-item>\n                <ion-label color="primary">Nom</ion-label>\n                <ion-input type="text" [(ngModel)]="nom" name="nom" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Prenom</ion-label>\n                <ion-input type="text" [(ngModel)]="prenom" name="prenom" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Cin</ion-label>\n                <ion-input type="number" [(ngModel)]="cin" name="cin" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Email</ion-label>\n                <ion-input type="email" [(ngModel)]="email" name="email" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Mot de passe</ion-label>\n                <ion-input type="password" [(ngModel)]="pass" name="pass" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Confirmer mot de passe</ion-label>\n                <ion-input type="password" [(ngModel)]="comf_pass" name="comf_pass" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Tel</ion-label>\n                <ion-input type="number" [(ngModel)]="tel" name="tel" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Date de naissance</ion-label>\n                <ion-datetime [(ngModel)]="dateNess" name="dateNess" required></ion-datetime>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Cycle </ion-label>\n                <ion-input type="text" [(ngModel)]="cy_etud" name="cy_etud" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Niveau d\'étude</ion-label>\n                <ion-input type="text" [(ngModel)]="niv_etud" name="niv_etud" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Specialite</ion-label>\n                <ion-input type="text" [(ngModel)]="specialite" name="specialite"></ion-input>\n            </ion-item>\n\n            <div *ngIf=\'erreur != ""\'>\n                <ion-card>\n                    <ion-card-content>\n                        {{erreur}}\n                    </ion-card-content>\n                </ion-card>\n            </div>\n            <button ion-button type="submit" block [disabled]="!registerForm.form.valid">Inscription</button>\n        </form>\n        <button ion-button color="dark" (click)="changeStatut()" block>\n      Return\n    </button>\n        <button ion-button class="register-btn" block clear (click)="createAccount()">Déja inscrire, Connexion</button>\n\n    </ng-template>\n\n    <ng-template #entreprise>\n        <form (ngSubmit)="submitEntreprise()" #registerFormEntreprise="ngForm">\n            <ion-item>\n                <ion-label color="primary">Nom</ion-label>\n                <ion-input type="text" [(ngModel)]="nom" name="nom" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Prenom</ion-label>\n                <ion-input type="text" [(ngModel)]="prenom" name="prenom" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Cin</ion-label>\n                <ion-input type="number" [(ngModel)]="cin" name="cin" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Email</ion-label>\n                <ion-input type="email" [(ngModel)]="email" name="email" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Mot de passe</ion-label>\n                <ion-input type="password" [(ngModel)]="pass" name="pass" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Confirmer mot de passe</ion-label>\n                <ion-input type="password" [(ngModel)]="comf_pass" name="comf_pass" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Tel</ion-label>\n                <ion-input type="number" [(ngModel)]="tel" name="tel"></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Nom Entreprise</ion-label>\n                <ion-input [(ngModel)]="nomEntreprise" name="nomEntreprise" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Tel Entreprise </ion-label>\n                <ion-input type="text" [(ngModel)]="telEntreprise" name="telEntreprise" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Adresse Entreprise</ion-label>\n                <ion-input type="text" [(ngModel)]="adresseEntreprise" name="adresseEntreprise" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Fax Entreprise</ion-label>\n                <ion-input type="number" [(ngModel)]="faxEntreprise" name="faxEntreprise"></ion-input>\n            </ion-item>\n\n            <div *ngIf=\'erreur != ""\'>\n                <ion-card>\n                    <ion-card-content>\n                        {{erreur}}\n                    </ion-card-content>\n                </ion-card>\n            </div>\n            <button ion-button type="submit" block [disabled]="!registerFormEntreprise.form.valid">Inscription</button>\n        </form>\n        <button ion-button color="dark" (click)="changeStatut()" block>\n      Return\n    </button>\n        <button ion-button class="register-btn" block clear (click)="createAccount()">Déja inscrire, Connexion</button>\n\n    </ng-template>\n\n    <ng-template #enseignant>\n        <form (ngSubmit)="submitEnseignant()" #registerFormEnseignante="ngForm">\n            <ion-item>\n                <ion-label color="primary">Nom</ion-label>\n                <ion-input type="text" [(ngModel)]="nom" name="nom" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Prenom</ion-label>\n                <ion-input type="text" [(ngModel)]="prenom" name="prenom" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Cin</ion-label>\n                <ion-input type="number" [(ngModel)]="cin" name="cin" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Email</ion-label>\n                <ion-input type="email" [(ngModel)]="email" name="email" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Mot de passe</ion-label>\n                <ion-input type="password" [(ngModel)]="pass" name="pass" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Confirmer mot de passe</ion-label>\n                <ion-input type="password" [(ngModel)]="comf_pass" name="comf_pass" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Tel</ion-label>\n                <ion-input type="number" [(ngModel)]="tel" name="tel"></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Grade</ion-label>\n                <ion-input type="text" [(ngModel)]="grade" name="grade"></ion-input>\n            </ion-item>\n\n            <div *ngIf=\'erreur != ""\'>\n                <ion-card>\n                    <ion-card-content>\n                        {{erreur}}\n                    </ion-card-content>\n                </ion-card>\n            </div>\n            <button ion-button type="submit" block [disabled]="!registerFormEnseignante.form.valid">Inscription</button>\n        </form>\n        <button ion-button color="dark" (click)="changeStatut()" block>\n      Return\n    </button>\n        <button ion-button class="register-btn" block clear (click)="createAccount()">Déja inscrire, Connexion</button>\n\n    </ng-template>\n</ion-content>'/*ion-inline-end:"E:\Projet\Ionic\gestion-projet-ionic\gestion-projet-ionic\src\pages\signup\signup.html"*/,
+            selector: 'page-signup',template:/*ion-inline-start:"D:\xampp\htdocs\gestion-projet-ionic\src\pages\signup\signup.html"*/'<!--\n\n  Generated template for the SignupPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n    <ion-navbar>\n\n        <ion-title>S\'inscrire</ion-title>\n\n    </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n\n\n<ion-content padding>\n\n    <ng-template *ngIf="status==\'Status\';then Status; "></ng-template>\n\n    <ng-template *ngIf="status==\'enseignant\';then enseignant; "></ng-template>\n\n    <ng-template *ngIf="status==\'etudiant\';then etudiant; "></ng-template>\n\n    <ng-template *ngIf="status==\'entreprise\';then entreprise;"></ng-template>\n\n    <ng-template #Status>\n\n        Choisir votre status\n\n        <ion-item>\n\n            <ion-label>Status</ion-label>\n\n            <ion-select name="etat" [(ngModel)]="status" (ngModelChange)="print()">\n\n                <option disabled selected value="-1">---- Votre Status ----</option>\n\n                <ion-option *ngFor="let statut of statuses" [value]="statut.value">{{statut.name}}</ion-option>\n\n            </ion-select>\n\n        </ion-item>\n\n    </ng-template>\n\n    <ng-template #etudiant>\n\n        <!--<form (ngSubmit)="submitEtudiant()">-->\n\n\n\n        <form (ngSubmit)="submitEtudiant()" #registerForm="ngForm">\n\n            <ion-item>\n\n                <ion-label color="primary">Nom</ion-label>\n\n                <ion-input type="text" [(ngModel)]="nom" name="nom" required></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n                <ion-label color="primary">Prenom</ion-label>\n\n                <ion-input type="text" [(ngModel)]="prenom" name="prenom" required></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n                <ion-label color="primary">Cin</ion-label>\n\n                <ion-input type="number" [(ngModel)]="cin" name="cin" required></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n                <ion-label color="primary">Email</ion-label>\n\n                <ion-input type="email" [(ngModel)]="email" name="email" required></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n                <ion-label color="primary">Mot de passe</ion-label>\n\n                <ion-input type="password" [(ngModel)]="pass" name="pass" required></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n                <ion-label color="primary">Confirmer mot de passe</ion-label>\n\n                <ion-input type="password" [(ngModel)]="comf_pass" name="comf_pass" required></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n                <ion-label color="primary">Tel</ion-label>\n\n                <ion-input type="number" [(ngModel)]="tel" name="tel" required></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n                <ion-label color="primary">Date de naissance</ion-label>\n\n                <ion-datetime [(ngModel)]="dateNess" name="dateNess" required></ion-datetime>\n\n            </ion-item>\n\n            <ion-item>\n\n                <ion-label color="primary">Cycle </ion-label>\n\n                <ion-input type="text" [(ngModel)]="cy_etud" name="cy_etud" required></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n                <ion-label color="primary">Niveau d\'étude</ion-label>\n\n                <ion-input type="text" [(ngModel)]="niv_etud" name="niv_etud" required></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n                <ion-label color="primary">Specialite</ion-label>\n\n                <ion-input type="text" [(ngModel)]="specialite" name="specialite"></ion-input>\n\n            </ion-item>\n\n\n\n            <div *ngIf=\'erreur != ""\'>\n\n                <ion-card>\n\n                    <ion-card-content>\n\n                        {{erreur}}\n\n                    </ion-card-content>\n\n                </ion-card>\n\n            </div>\n\n            <button ion-button type="submit" block [disabled]="!registerForm.form.valid">Inscription</button>\n\n        </form>\n\n        <button ion-button color="dark" (click)="changeStatut()" block>\n\n      Return\n\n    </button>\n\n        <button ion-button class="register-btn" block clear (click)="createAccount()">Déja inscrire, Connexion</button>\n\n\n\n    </ng-template>\n\n\n\n    <ng-template #entreprise>\n\n        <form (ngSubmit)="submitEntreprise()" #registerFormEntreprise="ngForm">\n\n            <ion-item>\n\n                <ion-label color="primary">Nom</ion-label>\n\n                <ion-input type="text" [(ngModel)]="nom" name="nom" required></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n                <ion-label color="primary">Prenom</ion-label>\n\n                <ion-input type="text" [(ngModel)]="prenom" name="prenom" required></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n                <ion-label color="primary">Cin</ion-label>\n\n                <ion-input type="number" [(ngModel)]="cin" name="cin" required></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n                <ion-label color="primary">Email</ion-label>\n\n                <ion-input type="email" [(ngModel)]="email" name="email" required></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n                <ion-label color="primary">Mot de passe</ion-label>\n\n                <ion-input type="password" [(ngModel)]="pass" name="pass" required></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n                <ion-label color="primary">Confirmer mot de passe</ion-label>\n\n                <ion-input type="password" [(ngModel)]="comf_pass" name="comf_pass" required></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n                <ion-label color="primary">Tel</ion-label>\n\n                <ion-input type="number" [(ngModel)]="tel" name="tel"></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n                <ion-label color="primary">Nom Entreprise</ion-label>\n\n                <ion-input [(ngModel)]="nomEntreprise" name="nomEntreprise" required></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n                <ion-label color="primary">Tel Entreprise </ion-label>\n\n                <ion-input type="text" [(ngModel)]="telEntreprise" name="telEntreprise" required></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n                <ion-label color="primary">Adresse Entreprise</ion-label>\n\n                <ion-input type="text" [(ngModel)]="adresseEntreprise" name="adresseEntreprise" required></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n                <ion-label color="primary">Fax Entreprise</ion-label>\n\n                <ion-input type="number" [(ngModel)]="faxEntreprise" name="faxEntreprise"></ion-input>\n\n            </ion-item>\n\n\n\n            <div *ngIf=\'erreur != ""\'>\n\n                <ion-card>\n\n                    <ion-card-content>\n\n                        {{erreur}}\n\n                    </ion-card-content>\n\n                </ion-card>\n\n            </div>\n\n            <button ion-button type="submit" block [disabled]="!registerFormEntreprise.form.valid">Inscription</button>\n\n        </form>\n\n        <button ion-button color="dark" (click)="changeStatut()" block>\n\n      Return\n\n    </button>\n\n        <button ion-button class="register-btn" block clear (click)="createAccount()">Déja inscrire, Connexion</button>\n\n\n\n    </ng-template>\n\n\n\n    <ng-template #enseignant>\n\n        <form (ngSubmit)="submitEnseignant()" #registerFormEnseignante="ngForm">\n\n            <ion-item>\n\n                <ion-label color="primary">Nom</ion-label>\n\n                <ion-input type="text" [(ngModel)]="nom" name="nom" required></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n                <ion-label color="primary">Prenom</ion-label>\n\n                <ion-input type="text" [(ngModel)]="prenom" name="prenom" required></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n                <ion-label color="primary">Cin</ion-label>\n\n                <ion-input type="number" [(ngModel)]="cin" name="cin" required></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n                <ion-label color="primary">Email</ion-label>\n\n                <ion-input type="email" [(ngModel)]="email" name="email" required></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n                <ion-label color="primary">Mot de passe</ion-label>\n\n                <ion-input type="password" [(ngModel)]="pass" name="pass" required></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n                <ion-label color="primary">Confirmer mot de passe</ion-label>\n\n                <ion-input type="password" [(ngModel)]="comf_pass" name="comf_pass" required></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n                <ion-label color="primary">Tel</ion-label>\n\n                <ion-input type="number" [(ngModel)]="tel" name="tel"></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n                <ion-label color="primary">Grade</ion-label>\n\n                <ion-input type="text" [(ngModel)]="grade" name="grade"></ion-input>\n\n            </ion-item>\n\n\n\n            <div *ngIf=\'erreur != ""\'>\n\n                <ion-card>\n\n                    <ion-card-content>\n\n                        {{erreur}}\n\n                    </ion-card-content>\n\n                </ion-card>\n\n            </div>\n\n            <button ion-button type="submit" block [disabled]="!registerFormEnseignante.form.valid">Inscription</button>\n\n        </form>\n\n        <button ion-button color="dark" (click)="changeStatut()" block>\n\n      Return\n\n    </button>\n\n        <button ion-button class="register-btn" block clear (click)="createAccount()">Déja inscrire, Connexion</button>\n\n\n\n    </ng-template>\n\n</ion-content>'/*ion-inline-end:"D:\xampp\htdocs\gestion-projet-ionic\src\pages\signup\signup.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__ionic_Storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */]])
     ], SignupPage);
@@ -291,10 +291,10 @@ var SignupPage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_auth_service_auth_service__ = __webpack_require__(205);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__signup_signup__ = __webpack_require__(105);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__home_home__ = __webpack_require__(43);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_common_http__ = __webpack_require__(42);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_Storage__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__vars__ = __webpack_require__(82);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__home_home__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_common_http__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_Storage__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__vars__ = __webpack_require__(31);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -349,6 +349,7 @@ var SigninPage = (function () {
         else {
             this.erreur = "";
         }
+        this.erreur = "";
         if (this.erreur == "") {
             this.showLoading();
             this.http.post(__WEBPACK_IMPORTED_MODULE_7__vars__["a" /* vars */].url + '/api/user', {
@@ -390,11 +391,12 @@ var SigninPage = (function () {
     };
     SigninPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-signin',template:/*ion-inline-start:"E:\Projet\Ionic\gestion-projet-ionic\gestion-projet-ionic\src\pages\signin\signin.html"*/'<!--\n  Generated template for the SigninPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar>\n        <ion-title>signin</ion-title>\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content class="login-content" padding>\n    <ion-row class="logo-row">\n        <ion-col></ion-col>\n        <ion-col width-67>\n            <img src="assets/images/logo.png" />\n        </ion-col>\n        <ion-col></ion-col>\n    </ion-row>\n    <div class="login-box">\n        <form (ngSubmit)="login()" #registerForm="ngForm">\n            <ion-row>\n                <ion-col>\n                    <ion-list inset>\n\n                        <ion-item>\n                            <ion-input type="text" placeholder="Email" name="email" [(ngModel)]="user.email" required></ion-input>\n                        </ion-item>\n\n                        <ion-item>\n                            <ion-input type="password" placeholder="Password" name="password" [(ngModel)]="user.password" required></ion-input>\n                        </ion-item>\n\n                    </ion-list>\n                </ion-col>\n            </ion-row>\n            <div *ngIf=\'erreur != ""\'>\n                <ion-card>\n                    <ion-card-content>\n                        {{erreur}}\n                    </ion-card-content>\n                </ion-card>\n            </div>\n            <ion-row>\n                <ion-col class="signup-col">\n                    <button ion-button full type="submit" [disabled]="!registerForm.form.valid">Login</button>\n                </ion-col>\n            </ion-row>\n\n        </form>\n        <button ion-button full clear (click)="createAccount()">Créer compte</button>\n    </div>\n</ion-content>'/*ion-inline-end:"E:\Projet\Ionic\gestion-projet-ionic\gestion-projet-ionic\src\pages\signin\signin.html"*/,
+            selector: 'page-signin',template:/*ion-inline-start:"D:\xampp\htdocs\gestion-projet-ionic\src\pages\signin\signin.html"*/'<!--\n\n  Generated template for the SigninPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n    <ion-navbar>\n\n        <ion-title>signin</ion-title>\n\n    </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n<ion-content class="login-content" padding>\n\n    <ion-row class="logo-row">\n\n        <ion-col></ion-col>\n\n        <ion-col width-67>\n\n            <img src="assets/images/logo.png" />\n\n        </ion-col>\n\n        <ion-col></ion-col>\n\n    </ion-row>\n\n    <div class="login-box">\n\n        <form (ngSubmit)="login()" #registerForm="ngForm">\n\n            <ion-row>\n\n                <ion-col>\n\n                    <ion-list inset>\n\n\n\n                        <ion-item>\n\n                            <ion-input type="text" placeholder="Email" name="email" [(ngModel)]="user.email" required></ion-input>\n\n                        </ion-item>\n\n\n\n                        <ion-item>\n\n                            <ion-input type="password" placeholder="Password" name="password" [(ngModel)]="user.password" required></ion-input>\n\n                        </ion-item>\n\n\n\n                    </ion-list>\n\n                </ion-col>\n\n            </ion-row>\n\n            <div *ngIf=\'erreur != ""\'>\n\n                <ion-card>\n\n                    <ion-card-content>\n\n                        {{erreur}}\n\n                    </ion-card-content>\n\n                </ion-card>\n\n            </div>\n\n            <ion-row>\n\n                <ion-col class="signup-col">\n\n                    <button ion-button full type="submit" [disabled]="!registerForm.form.valid">Login</button>\n\n                </ion-col>\n\n            </ion-row>\n\n\n\n        </form>\n\n        <button ion-button full clear (click)="createAccount()">Créer compte</button>\n\n    </div>\n\n</ion-content>'/*ion-inline-end:"D:\xampp\htdocs\gestion-projet-ionic\src\pages\signin\signin.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_6__ionic_Storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_5__angular_common_http__["a" /* HttpClient */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_auth_service_auth_service__["a" /* AuthServiceProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_6__ionic_Storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__ionic_Storage__["b" /* Storage */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_5__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__angular_common_http__["a" /* HttpClient */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_2__providers_auth_service_auth_service__["a" /* AuthServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_auth_service_auth_service__["a" /* AuthServiceProvider */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */]) === "function" && _g || Object])
     ], SigninPage);
     return SigninPage;
+    var _a, _b, _c, _d, _e, _f, _g;
 }());
 
 //# sourceMappingURL=signin.js.map
@@ -408,9 +410,9 @@ var SigninPage = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SettingProfilePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_Storage__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__vars__ = __webpack_require__(82);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_common_http__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_Storage__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__vars__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_common_http__ = __webpack_require__(21);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -627,7 +629,7 @@ var SettingProfilePage = (function () {
     };
     SettingProfilePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-setting-profile',template:/*ion-inline-start:"E:\Projet\Ionic\gestion-projet-ionic\gestion-projet-ionic\src\pages\setting-profile\setting-profile.html"*/'<!--\n  Generated template for the SettingProfilePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n    <ion-navbar>\n        <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n        <ion-title>Mon compte</ion-title>\n    </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n    <div *ngIf=\'success != ""\'>\n        <ion-card>\n            <ion-card-content class="success-content">\n                Modification avec succes\n            </ion-card-content>\n        </ion-card>\n    </div>\n\n    <ng-template *ngIf="user.type==1;then etudiant; "></ng-template>\n    <ng-template *ngIf="user.type==2;then enseignant; "></ng-template>\n    <ng-template *ngIf="user.type==3 || user.type==4;then entreprise;"></ng-template>\n\n\n    <ng-template #etudiant>\n        <!--<form (ngSubmit)="submitEtudiant()">-->\n\n        <form (ngSubmit)="submitEtudiant()" #registerForm="ngForm">\n            <ion-item>\n                <ion-label color="primary">Nom</ion-label>\n                <ion-input type="text" [(ngModel)]="user.nom" name="nom" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Prenom</ion-label>\n                <ion-input type="text" [(ngModel)]="user.prenom" name="prenom" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Cin</ion-label>\n                <ion-input type="number" [(ngModel)]="user.cin" name="cin" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Email</ion-label>\n                <ion-input type="email" [(ngModel)]="user.email" name="email" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Tel</ion-label>\n                <ion-input type="number" [(ngModel)]="user.tel" name="tel" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Date de naissance</ion-label>\n                <ion-datetime [(ngModel)]="user.date_naiss" name="dateNess" required></ion-datetime>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Cycle </ion-label>\n                <ion-input type="text" [(ngModel)]="user.cycle_etude" name="cy_etud" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Niveau d\'étude</ion-label>\n                <ion-input type="text" [(ngModel)]="user.niveau_etude" name="niv_etud"></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Specialite</ion-label>\n                <ion-input type="text" [(ngModel)]="user.specialite" name="specialite"></ion-input>\n            </ion-item>\n\n            <div *ngIf=\'erreur != ""\'>\n                <ion-card>\n                    <ion-card-content class="erreur-content">\n                        {{erreur}}\n                    </ion-card-content>\n                </ion-card>\n            </div>\n            <button ion-button type="submit" block [disabled]="!registerForm.form.valid">Modifier</button>\n        </form>\n    </ng-template>\n\n    <ng-template #entreprise>\n        <form (ngSubmit)="submitEntreprise()" #registerFormEntreprise="ngForm">\n            <ion-item>\n                <ion-label color="primary">Nom</ion-label>\n                <ion-input type="text" [(ngModel)]="user.nom" name="nom" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Prenom</ion-label>\n                <ion-input type="text" [(ngModel)]="user.prenom" name="prenom" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Cin</ion-label>\n                <ion-input type="number" [(ngModel)]="user.cin" name="cin" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Email</ion-label>\n                <ion-input type="email" [(ngModel)]="user.email" name="email" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Tel</ion-label>\n                <ion-input type="number" [(ngModel)]="user.tel" name="tel"></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Nom Entreprise</ion-label>\n                <ion-input [(ngModel)]="user.nom_ent" name="nomEntreprise" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Tel Entreprise </ion-label>\n                <ion-input type="text" [(ngModel)]="user.tel_ent" name="telEntreprise" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Adresse Entreprise</ion-label>\n                <ion-input type="text" [(ngModel)]="user.adresse_ent" name="adresseEntreprise" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Fax Entreprise</ion-label>\n                <ion-input type="number" [(ngModel)]="user.fax_ent" name="faxEntreprise"></ion-input>\n            </ion-item>\n\n            <div *ngIf=\'erreur != ""\'>\n                <ion-card>\n                    <ion-card-content class="erreur-content">\n                        {{erreur}}\n                    </ion-card-content>\n                </ion-card>\n            </div>\n            <button ion-button type="submit" block [disabled]="!registerFormEntreprise.form.valid">Modifier</button>\n        </form>\n    </ng-template>\n\n    <ng-template #enseignant>\n        <form (ngSubmit)="submitEnseignant()" #registerFormEnseignante="ngForm">\n            <ion-item>\n                <ion-label color="primary">Nom</ion-label>\n                <ion-input type="text" [(ngModel)]="user.nom" name="nom" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Prenom</ion-label>\n                <ion-input type="text" [(ngModel)]="user.prenom" name="prenom" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Cin</ion-label>\n                <ion-input type="number" [(ngModel)]="user.cin" name="cin" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Email</ion-label>\n                <ion-input type="email" [(ngModel)]="user.email" name="email" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Tel</ion-label>\n                <ion-input type="number" [(ngModel)]="user.tel" name="tel" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Grade</ion-label>\n                <ion-input type="text" [(ngModel)]="user.grade" name="grade" required></ion-input>\n            </ion-item>\n\n            <div *ngIf=\'erreur != ""\'>\n                <ion-card>\n                    <ion-card-content class="erreur-content">\n                        {{erreur}}\n                    </ion-card-content>\n                </ion-card>\n            </div>\n            <button ion-button type="submit" block [disabled]="!registerFormEnseignante.form.valid">Modifier</button>\n        </form>\n    </ng-template>\n</ion-content>'/*ion-inline-end:"E:\Projet\Ionic\gestion-projet-ionic\gestion-projet-ionic\src\pages\setting-profile\setting-profile.html"*/,
+            selector: 'page-setting-profile',template:/*ion-inline-start:"D:\xampp\htdocs\gestion-projet-ionic\src\pages\setting-profile\setting-profile.html"*/'<!--\n\n  Generated template for the SettingProfilePage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n    <ion-navbar>\n\n        <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n        <ion-title>Mon compte</ion-title>\n\n    </ion-navbar>\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n    <div *ngIf=\'success != ""\'>\n\n        <ion-card>\n\n            <ion-card-content class="success-content">\n\n                Modification avec succes\n\n            </ion-card-content>\n\n        </ion-card>\n\n    </div>\n\n\n\n    <ng-template *ngIf="user.type==1;then etudiant; "></ng-template>\n\n    <ng-template *ngIf="user.type==2;then enseignant; "></ng-template>\n\n    <ng-template *ngIf="user.type==3 || user.type==4;then entreprise;"></ng-template>\n\n\n\n\n\n    <ng-template #etudiant>\n\n        <!--<form (ngSubmit)="submitEtudiant()">-->\n\n\n\n        <form (ngSubmit)="submitEtudiant()" #registerForm="ngForm">\n\n            <ion-item>\n\n                <ion-label color="primary">Nom</ion-label>\n\n                <ion-input type="text" [(ngModel)]="user.nom" name="nom" required></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n                <ion-label color="primary">Prenom</ion-label>\n\n                <ion-input type="text" [(ngModel)]="user.prenom" name="prenom" required></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n                <ion-label color="primary">Cin</ion-label>\n\n                <ion-input type="number" [(ngModel)]="user.cin" name="cin" required></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n                <ion-label color="primary">Email</ion-label>\n\n                <ion-input type="email" [(ngModel)]="user.email" name="email" required></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n                <ion-label color="primary">Tel</ion-label>\n\n                <ion-input type="number" [(ngModel)]="user.tel" name="tel" required></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n                <ion-label color="primary">Date de naissance</ion-label>\n\n                <ion-datetime [(ngModel)]="user.date_naiss" name="dateNess" required></ion-datetime>\n\n            </ion-item>\n\n            <ion-item>\n\n                <ion-label color="primary">Cycle </ion-label>\n\n                <ion-input type="text" [(ngModel)]="user.cycle_etude" name="cy_etud" required></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n                <ion-label color="primary">Niveau d\'étude</ion-label>\n\n                <ion-input type="text" [(ngModel)]="user.niveau_etude" name="niv_etud"></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n                <ion-label color="primary">Specialite</ion-label>\n\n                <ion-input type="text" [(ngModel)]="user.specialite" name="specialite"></ion-input>\n\n            </ion-item>\n\n\n\n            <div *ngIf=\'erreur != ""\'>\n\n                <ion-card>\n\n                    <ion-card-content class="erreur-content">\n\n                        {{erreur}}\n\n                    </ion-card-content>\n\n                </ion-card>\n\n            </div>\n\n            <button ion-button type="submit" block [disabled]="!registerForm.form.valid">Modifier</button>\n\n        </form>\n\n    </ng-template>\n\n\n\n    <ng-template #entreprise>\n\n        <form (ngSubmit)="submitEntreprise()" #registerFormEntreprise="ngForm">\n\n            <ion-item>\n\n                <ion-label color="primary">Nom</ion-label>\n\n                <ion-input type="text" [(ngModel)]="user.nom" name="nom" required></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n                <ion-label color="primary">Prenom</ion-label>\n\n                <ion-input type="text" [(ngModel)]="user.prenom" name="prenom" required></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n                <ion-label color="primary">Cin</ion-label>\n\n                <ion-input type="number" [(ngModel)]="user.cin" name="cin" required></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n                <ion-label color="primary">Email</ion-label>\n\n                <ion-input type="email" [(ngModel)]="user.email" name="email" required></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n                <ion-label color="primary">Tel</ion-label>\n\n                <ion-input type="number" [(ngModel)]="user.tel" name="tel"></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n                <ion-label color="primary">Nom Entreprise</ion-label>\n\n                <ion-input [(ngModel)]="user.nom_ent" name="nomEntreprise" required></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n                <ion-label color="primary">Tel Entreprise </ion-label>\n\n                <ion-input type="text" [(ngModel)]="user.tel_ent" name="telEntreprise" required></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n                <ion-label color="primary">Adresse Entreprise</ion-label>\n\n                <ion-input type="text" [(ngModel)]="user.adresse_ent" name="adresseEntreprise" required></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n                <ion-label color="primary">Fax Entreprise</ion-label>\n\n                <ion-input type="number" [(ngModel)]="user.fax_ent" name="faxEntreprise"></ion-input>\n\n            </ion-item>\n\n\n\n            <div *ngIf=\'erreur != ""\'>\n\n                <ion-card>\n\n                    <ion-card-content class="erreur-content">\n\n                        {{erreur}}\n\n                    </ion-card-content>\n\n                </ion-card>\n\n            </div>\n\n            <button ion-button type="submit" block [disabled]="!registerFormEntreprise.form.valid">Modifier</button>\n\n        </form>\n\n    </ng-template>\n\n\n\n    <ng-template #enseignant>\n\n        <form (ngSubmit)="submitEnseignant()" #registerFormEnseignante="ngForm">\n\n            <ion-item>\n\n                <ion-label color="primary">Nom</ion-label>\n\n                <ion-input type="text" [(ngModel)]="user.nom" name="nom" required></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n                <ion-label color="primary">Prenom</ion-label>\n\n                <ion-input type="text" [(ngModel)]="user.prenom" name="prenom" required></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n                <ion-label color="primary">Cin</ion-label>\n\n                <ion-input type="number" [(ngModel)]="user.cin" name="cin" required></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n                <ion-label color="primary">Email</ion-label>\n\n                <ion-input type="email" [(ngModel)]="user.email" name="email" required></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n                <ion-label color="primary">Tel</ion-label>\n\n                <ion-input type="number" [(ngModel)]="user.tel" name="tel" required></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n                <ion-label color="primary">Grade</ion-label>\n\n                <ion-input type="text" [(ngModel)]="user.grade" name="grade" required></ion-input>\n\n            </ion-item>\n\n\n\n            <div *ngIf=\'erreur != ""\'>\n\n                <ion-card>\n\n                    <ion-card-content class="erreur-content">\n\n                        {{erreur}}\n\n                    </ion-card-content>\n\n                </ion-card>\n\n            </div>\n\n            <button ion-button type="submit" block [disabled]="!registerFormEnseignante.form.valid">Modifier</button>\n\n        </form>\n\n    </ng-template>\n\n</ion-content>'/*ion-inline-end:"D:\xampp\htdocs\gestion-projet-ionic\src\pages\setting-profile\setting-profile.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_2__ionic_Storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_4__angular_common_http__["a" /* HttpClient */]])
     ], SettingProfilePage);
@@ -689,8 +691,8 @@ module.exports = webpackAsyncContext;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__signup_signup__ = __webpack_require__(105);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__signin_signin__ = __webpack_require__(106);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_Storage__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__home_home__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_Storage__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__home_home__ = __webpack_require__(44);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -734,7 +736,7 @@ var WelcomePage = (function () {
     };
     WelcomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-welcome',template:/*ion-inline-start:"E:\Projet\Ionic\gestion-projet-ionic\gestion-projet-ionic\src\pages\welcome\welcome.html"*/'<!--\n  Generated template for the WelcomePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n\n<ion-content padding id="welcome">\n  <br>\n  <img src="assets/imgs/logo.png" class="logo" />\n  <ion-grid>\n    <ion-row>\n      <ion-col>\n        <h5>Bienvenu dans notre application !</h5>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n<br>\n  <ion-grid>\n    <ion-row>\n      <ion-col center text-center>\n        <button ion-button full class="btn1" color="lightText" (click)="login()">Se Connecter</button>\n      </ion-col>\n    </ion-row>\n    <ion-row>\n      <ion-col center text-center>\n        <button ion-button full class="btn2"  (click)="signup()">S\'inscrire</button>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n\n-->\n\n\n<ion-content class="login-content" padding>\n    <ion-row class="logo-row">\n        <ion-col></ion-col>\n        <ion-col width-67>\n            <img src="assets/images/logo.png" />\n        </ion-col>\n        <ion-col></ion-col>\n    </ion-row>\n    <ion-grid>\n        <ion-row>\n            <ion-col>\n                <!--<h5>Bienvenu dans notre application gestion stage !</h5>-->\n            </ion-col>\n        </ion-row>\n    </ion-grid>\n    <div>\n        <ion-row class="btn-row">\n            <ion-col class="login-col">\n                <button ion-button class="login-btn" full (click)="login()">Se Connecter</button>\n            </ion-col>\n        </ion-row>\n\n        <ion-row>\n            <ion-col class="signup-col">\n                <button ion-button class="signup-btn" full (click)="signup()">S\'inscrire</button>\n            </ion-col>\n        </ion-row>\n\n    </div>\n</ion-content>'/*ion-inline-end:"E:\Projet\Ionic\gestion-projet-ionic\gestion-projet-ionic\src\pages\welcome\welcome.html"*/,
+            selector: 'page-welcome',template:/*ion-inline-start:"D:\xampp\htdocs\gestion-projet-ionic\src\pages\welcome\welcome.html"*/'<!--\n\n  Generated template for the WelcomePage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n\n\n<ion-content padding id="welcome">\n\n  <br>\n\n  <img src="assets/imgs/logo.png" class="logo" />\n\n  <ion-grid>\n\n    <ion-row>\n\n      <ion-col>\n\n        <h5>Bienvenu dans notre application !</h5>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n<br>\n\n  <ion-grid>\n\n    <ion-row>\n\n      <ion-col center text-center>\n\n        <button ion-button full class="btn1" color="lightText" (click)="login()">Se Connecter</button>\n\n      </ion-col>\n\n    </ion-row>\n\n    <ion-row>\n\n      <ion-col center text-center>\n\n        <button ion-button full class="btn2"  (click)="signup()">S\'inscrire</button>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n</ion-content>\n\n\n\n-->\n\n\n\n\n\n<ion-content class="login-content" padding>\n\n    <ion-row class="logo-row">\n\n        <ion-col></ion-col>\n\n        <ion-col width-67>\n\n            <img src="assets/images/logo.png" />\n\n        </ion-col>\n\n        <ion-col></ion-col>\n\n    </ion-row>\n\n    <ion-grid>\n\n        <ion-row>\n\n            <ion-col>\n\n                <!--<h5>Bienvenu dans notre application gestion stage !</h5>-->\n\n            </ion-col>\n\n        </ion-row>\n\n    </ion-grid>\n\n    <div>\n\n        <ion-row class="btn-row">\n\n            <ion-col class="login-col">\n\n                <button ion-button class="login-btn" full (click)="login()">Se Connecter</button>\n\n            </ion-col>\n\n        </ion-row>\n\n\n\n        <ion-row>\n\n            <ion-col class="signup-col">\n\n                <button ion-button class="signup-btn" full (click)="signup()">S\'inscrire</button>\n\n            </ion-col>\n\n        </ion-row>\n\n\n\n    </div>\n\n</ion-content>'/*ion-inline-end:"D:\xampp\htdocs\gestion-projet-ionic\src\pages\welcome\welcome.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4__ionic_Storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
     ], WelcomePage);
@@ -750,11 +752,11 @@ var WelcomePage = (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthServiceProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__(293);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__(294);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -861,8 +863,8 @@ var AuthServiceProvider = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ListeDemEntreprisePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__vars__ = __webpack_require__(82);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common_http__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__vars__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common_http__ = __webpack_require__(21);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -942,12 +944,12 @@ var ListeDemEntreprisePage = (function () {
     };
     ListeDemEntreprisePage = ListeDemEntreprisePage_1 = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-liste-dem-entreprise',template:/*ion-inline-start:"E:\Projet\Ionic\gestion-projet-ionic\gestion-projet-ionic\src\pages\liste-dem-entreprise\liste-dem-entreprise.html"*/'<!--\n  Generated template for the ListeDemEntreprisePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar>\n        <button ion-button menuToggle>\n          <ion-icon name="menu"></ion-icon>\n        </button>\n        <ion-title>Liste demandes Entreprise</ion-title>\n    </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    <ion-content padding>\n        <ion-list>\n            <!--<button ion-item *ngFor="let item of Entreprises">\n                    {{item.nom}} {{item.prenom}} \n                    <div class="item-note" item-end>\n                        {{item.nom_ent}}\n                      </div> \n                  </button>-->\n\n            <ion-item *ngFor="let item of Entreprises">\n                <h2>{{item.nom}} {{item.prenom}} </h2>\n                <h1>{{item.nom_ent}}</h1>\n                <button ion-button color="secondary" (click)="updateEntreprises(item.id)" icon-start item-end>\n                    <ion-icon name=\'checkmark\'></ion-icon>\n                    Accepter\n                  </button><button ion-button color="danger" (click)="deleteEntreprises(item.id)" icon-start item-end>\n                      <ion-icon name=\'close\'></ion-icon>\n                      Refuser\n                    </button>\n            </ion-item>\n        </ion-list>\n    </ion-content>\n</ion-content>'/*ion-inline-end:"E:\Projet\Ionic\gestion-projet-ionic\gestion-projet-ionic\src\pages\liste-dem-entreprise\liste-dem-entreprise.html"*/,
+            selector: 'page-liste-dem-entreprise',template:/*ion-inline-start:"D:\xampp\htdocs\gestion-projet-ionic\src\pages\liste-dem-entreprise\liste-dem-entreprise.html"*/'<!--\n\n  Generated template for the ListeDemEntreprisePage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n    <ion-navbar>\n\n        <button ion-button menuToggle>\n\n          <ion-icon name="menu"></ion-icon>\n\n        </button>\n\n        <ion-title>Liste demandes Entreprise</ion-title>\n\n    </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n    <ion-content padding>\n\n        <ion-list>\n\n            <!--<button ion-item *ngFor="let item of Entreprises">\n\n                    {{item.nom}} {{item.prenom}} \n\n                    <div class="item-note" item-end>\n\n                        {{item.nom_ent}}\n\n                      </div> \n\n                  </button>-->\n\n\n\n            <ion-item *ngFor="let item of Entreprises">\n\n                <h2>{{item.nom}} {{item.prenom}} </h2>\n\n                <h1>{{item.nom_ent}}</h1>\n\n                <button ion-button color="secondary" (click)="updateEntreprises(item.id)" icon-start item-end>\n\n                    <ion-icon name=\'checkmark\'></ion-icon>\n\n                    Accepter\n\n                  </button><button ion-button color="danger" (click)="deleteEntreprises(item.id)" icon-start item-end>\n\n                      <ion-icon name=\'close\'></ion-icon>\n\n                      Refuser\n\n                    </button>\n\n            </ion-item>\n\n        </ion-list>\n\n    </ion-content>\n\n</ion-content>'/*ion-inline-end:"D:\xampp\htdocs\gestion-projet-ionic\src\pages\liste-dem-entreprise\liste-dem-entreprise.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["a" /* HttpClient */]) === "function" && _d || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["a" /* HttpClient */]])
     ], ListeDemEntreprisePage);
     return ListeDemEntreprisePage;
-    var ListeDemEntreprisePage_1, _a, _b, _c, _d;
+    var ListeDemEntreprisePage_1;
 }());
 
 //# sourceMappingURL=liste-dem-entreprise.js.map
@@ -961,8 +963,8 @@ var ListeDemEntreprisePage = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ListeEnseignantPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__vars__ = __webpack_require__(82);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common_http__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__vars__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common_http__ = __webpack_require__(21);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1004,12 +1006,11 @@ var ListeEnseignantPage = (function () {
     };
     ListeEnseignantPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-liste-enseignant',template:/*ion-inline-start:"E:\Projet\Ionic\gestion-projet-ionic\gestion-projet-ionic\src\pages\liste-enseignant\liste-enseignant.html"*/'<!--\n  Generated template for the ListeEnseignantPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n\n    <ion-navbar>\n        <button ion-button menuToggle>\n          <ion-icon name="menu"></ion-icon>\n        </button>\n        <ion-title>Liste Enseignants</ion-title>\n    </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    <ion-list>\n        <button ion-item *ngFor="let item of Enseignant">\n          <ion-icon ios="ios-contact" md="md-contact"></ion-icon>\n            {{item.nom}} {{item.prenom}} \n            <div class="item-note" item-end>\n                {{item.grade}}\n              </div> \n          </button>\n    </ion-list>\n</ion-content>'/*ion-inline-end:"E:\Projet\Ionic\gestion-projet-ionic\gestion-projet-ionic\src\pages\liste-enseignant\liste-enseignant.html"*/,
+            selector: 'page-liste-enseignant',template:/*ion-inline-start:"D:\xampp\htdocs\gestion-projet-ionic\src\pages\liste-enseignant\liste-enseignant.html"*/'<!--\n\n  Generated template for the ListeEnseignantPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n\n\n    <ion-navbar>\n\n        <button ion-button menuToggle>\n\n          <ion-icon name="menu"></ion-icon>\n\n        </button>\n\n        <ion-title>Liste Enseignants</ion-title>\n\n    </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n    <ion-list>\n\n        <button ion-item *ngFor="let item of Enseignant">\n\n          <ion-icon ios="ios-contact" md="md-contact"></ion-icon>\n\n            {{item.nom}} {{item.prenom}} \n\n            <div class="item-note" item-end>\n\n                {{item.grade}}\n\n              </div> \n\n          </button>\n\n    </ion-list>\n\n</ion-content>'/*ion-inline-end:"D:\xampp\htdocs\gestion-projet-ionic\src\pages\liste-enseignant\liste-enseignant.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["a" /* HttpClient */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]) === "function" && _c || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__angular_common_http__["a" /* HttpClient */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
     ], ListeEnseignantPage);
     return ListeEnseignantPage;
-    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=liste-enseignant.js.map
@@ -1020,11 +1021,71 @@ var ListeEnseignantPage = (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ListeEntreprisePage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__vars__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common_http__ = __webpack_require__(21);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+/**
+ * Generated class for the ListeEntreprisePage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var ListeEntreprisePage = (function () {
+    function ListeEntreprisePage(navCtrl, navParams, http) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.http = http;
+    }
+    ListeEntreprisePage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad ListeEntreprisePage');
+        this.getAllEntreprises();
+    };
+    ListeEntreprisePage.prototype.getAllEntreprises = function () {
+        var _this = this;
+        this.http.get(__WEBPACK_IMPORTED_MODULE_2__vars__["a" /* vars */].url + "/api/entreprise/all/3").subscribe(function (res) {
+            _this.Entreprises = res;
+            console.log("etu" + _this.Entreprises);
+        }, function (err) {
+            console.log("Problème de connexion");
+        });
+    };
+    ListeEntreprisePage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-liste-entreprise',template:/*ion-inline-start:"D:\xampp\htdocs\gestion-projet-ionic\src\pages\liste-entreprise\liste-entreprise.html"*/'<!--\n\n  Generated template for the ListeEntreprisePage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n    <ion-navbar>\n\n        <button ion-button menuToggle>\n\n          <ion-icon name="menu"></ion-icon>\n\n        </button>\n\n        <ion-title>Liste Entreprise</ion-title>\n\n    </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n    <ion-list>\n\n        <button ion-item *ngFor="let item of Entreprises"> \n\n                {{item.nom}} {{item.prenom}} \n\n                <div class="item-note" item-end>\n\n                    {{item.nom_ent}}\n\n                  </div> \n\n              </button>\n\n    </ion-list>\n\n</ion-content>'/*ion-inline-end:"D:\xampp\htdocs\gestion-projet-ionic\src\pages\liste-entreprise\liste-entreprise.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["a" /* HttpClient */]])
+    ], ListeEntreprisePage);
+    return ListeEntreprisePage;
+}());
+
+//# sourceMappingURL=liste-entreprise.js.map
+
+/***/ }),
+
+/***/ 209:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ListeEtudiantPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__vars__ = __webpack_require__(82);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common_http__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__vars__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common_http__ = __webpack_require__(21);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1065,19 +1126,18 @@ var ListeEtudiantPage = (function () {
     };
     ListeEtudiantPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-liste-etudiant',template:/*ion-inline-start:"E:\Projet\Ionic\gestion-projet-ionic\gestion-projet-ionic\src\pages\liste-etudiant\liste-etudiant.html"*/'<!--\n  Generated template for the ListeEtudiantPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar>\n        <button ion-button menuToggle>\n          <ion-icon name="menu"></ion-icon>\n        </button>\n        <ion-title>Liste Etudiants </ion-title>\n    </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n    <ion-list>\n        <button ion-item *ngFor="let item of Etudiants">\n          <ion-icon ios="ios-contact" md="md-contact"></ion-icon>\n            {{item.nom}} {{item.prenom}} \n            <div class="item-note" item-end>\n                {{item.niveau_etude}} {{item.specialite}}\n              </div> \n          </button>\n    </ion-list>\n</ion-content>'/*ion-inline-end:"E:\Projet\Ionic\gestion-projet-ionic\gestion-projet-ionic\src\pages\liste-etudiant\liste-etudiant.html"*/,
+            selector: 'page-liste-etudiant',template:/*ion-inline-start:"D:\xampp\htdocs\gestion-projet-ionic\src\pages\liste-etudiant\liste-etudiant.html"*/'<!--\n\n  Generated template for the ListeEtudiantPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n    <ion-navbar>\n\n        <button ion-button menuToggle>\n\n          <ion-icon name="menu"></ion-icon>\n\n        </button>\n\n        <ion-title>Liste Etudiants </ion-title>\n\n    </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n\n\n    <ion-list>\n\n        <button ion-item *ngFor="let item of Etudiants">\n\n          <ion-icon ios="ios-contact" md="md-contact"></ion-icon>\n\n            {{item.nom}} {{item.prenom}} \n\n            <div class="item-note" item-end>\n\n                {{item.niveau_etude}} {{item.specialite}}\n\n              </div> \n\n          </button>\n\n    </ion-list>\n\n</ion-content>'/*ion-inline-end:"D:\xampp\htdocs\gestion-projet-ionic\src\pages\liste-etudiant\liste-etudiant.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["a" /* HttpClient */]) === "function" && _c || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["a" /* HttpClient */]])
     ], ListeEtudiantPage);
     return ListeEtudiantPage;
-    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=liste-etudiant.js.map
 
 /***/ }),
 
-/***/ 209:
+/***/ 210:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1111,7 +1171,7 @@ var ListeStagePropPage = (function () {
     };
     ListeStagePropPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-liste-stage-prop',template:/*ion-inline-start:"E:\Projet\Ionic\gestion-projet-ionic\gestion-projet-ionic\src\pages\liste-stage-prop\liste-stage-prop.html"*/'<!--\n  Generated template for the ListeStagePropPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar>\n        <button ion-button menuToggle>\n          <ion-icon name="menu"></ion-icon>\n        </button>\n        <ion-title>Liste stage proposés </ion-title>\n    </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>'/*ion-inline-end:"E:\Projet\Ionic\gestion-projet-ionic\gestion-projet-ionic\src\pages\liste-stage-prop\liste-stage-prop.html"*/,
+            selector: 'page-liste-stage-prop',template:/*ion-inline-start:"D:\xampp\htdocs\gestion-projet-ionic\src\pages\liste-stage-prop\liste-stage-prop.html"*/'<!--\n\n  Generated template for the ListeStagePropPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n    <ion-navbar>\n\n        <button ion-button menuToggle>\n\n          <ion-icon name="menu"></ion-icon>\n\n        </button>\n\n        <ion-title>Liste stage proposés </ion-title>\n\n    </ion-navbar>\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n\n\n</ion-content>'/*ion-inline-end:"D:\xampp\htdocs\gestion-projet-ionic\src\pages\liste-stage-prop\liste-stage-prop.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
     ], ListeStagePropPage);
@@ -1122,7 +1182,7 @@ var ListeStagePropPage = (function () {
 
 /***/ }),
 
-/***/ 210:
+/***/ 211:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1156,7 +1216,7 @@ var ListeStagePubPage = (function () {
     };
     ListeStagePubPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-liste-stage-pub',template:/*ion-inline-start:"E:\Projet\Ionic\gestion-projet-ionic\gestion-projet-ionic\src\pages\liste-stage-pub\liste-stage-pub.html"*/'<!--\n  Generated template for the ListeStagePubPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar>\n        <button ion-button menuToggle>\n          <ion-icon name="menu"></ion-icon>\n        </button>\n        <ion-title>List Stage</ion-title>\n    </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n\n</ion-content>'/*ion-inline-end:"E:\Projet\Ionic\gestion-projet-ionic\gestion-projet-ionic\src\pages\liste-stage-pub\liste-stage-pub.html"*/,
+            selector: 'page-liste-stage-pub',template:/*ion-inline-start:"D:\xampp\htdocs\gestion-projet-ionic\src\pages\liste-stage-pub\liste-stage-pub.html"*/'<!--\n\n  Generated template for the ListeStagePubPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n    <ion-navbar>\n\n        <button ion-button menuToggle>\n\n          <ion-icon name="menu"></ion-icon>\n\n        </button>\n\n        <ion-title>List Stage</ion-title>\n\n    </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n\n\n</ion-content>'/*ion-inline-end:"D:\xampp\htdocs\gestion-projet-ionic\src\pages\liste-stage-pub\liste-stage-pub.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
     ], ListeStagePubPage);
@@ -1167,7 +1227,7 @@ var ListeStagePubPage = (function () {
 
 /***/ }),
 
-/***/ 211:
+/***/ 212:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1201,7 +1261,7 @@ var PubStagePage = (function () {
     };
     PubStagePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-pub-stage',template:/*ion-inline-start:"E:\Projet\Ionic\gestion-projet-ionic\gestion-projet-ionic\src\pages\pub-stage\pub-stage.html"*/'<!--\n  Generated template for the PubStagePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar>\n        <button ion-button menuToggle>\n          <ion-icon name="menu"></ion-icon>\n        </button>\n        <ion-title>Publier Stage</ion-title>\n    </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>'/*ion-inline-end:"E:\Projet\Ionic\gestion-projet-ionic\gestion-projet-ionic\src\pages\pub-stage\pub-stage.html"*/,
+            selector: 'page-pub-stage',template:/*ion-inline-start:"D:\xampp\htdocs\gestion-projet-ionic\src\pages\pub-stage\pub-stage.html"*/'<!--\n\n  Generated template for the PubStagePage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n    <ion-navbar>\n\n        <button ion-button menuToggle>\n\n          <ion-icon name="menu"></ion-icon>\n\n        </button>\n\n        <ion-title>Publier Stage</ion-title>\n\n    </ion-navbar>\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n\n\n</ion-content>'/*ion-inline-end:"D:\xampp\htdocs\gestion-projet-ionic\src\pages\pub-stage\pub-stage.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
     ], PubStagePage);
@@ -1212,13 +1272,13 @@ var PubStagePage = (function () {
 
 /***/ }),
 
-/***/ 212:
+/***/ 213:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(213);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(234);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(214);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(235);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -1226,18 +1286,18 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 234:
+/***/ 235:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(33);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common_http__ = __webpack_require__(42);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_Storage__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__(284);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_home_home__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common_http__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_Storage__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__(285);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_home_home__ = __webpack_require__(44);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_list_list__ = __webpack_require__(295);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_welcome_welcome__ = __webpack_require__(204);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_signup_signup__ = __webpack_require__(105);
@@ -1245,11 +1305,11 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_setting_profile_setting_profile__ = __webpack_require__(107);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_liste_dem_entreprise_liste_dem_entreprise__ = __webpack_require__(206);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_liste_enseignant_liste_enseignant__ = __webpack_require__(207);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_liste_entreprise_liste_entreprise__ = __webpack_require__(294);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_liste_etudiant_liste_etudiant__ = __webpack_require__(208);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_liste_stage_prop_liste_stage_prop__ = __webpack_require__(209);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_liste_stage_pub_liste_stage_pub__ = __webpack_require__(210);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_pub_stage_pub_stage__ = __webpack_require__(211);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_liste_entreprise_liste_entreprise__ = __webpack_require__(208);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_liste_etudiant_liste_etudiant__ = __webpack_require__(209);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_liste_stage_prop_liste_stage_prop__ = __webpack_require__(210);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_liste_stage_pub_liste_stage_pub__ = __webpack_require__(211);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_pub_stage_pub_stage__ = __webpack_require__(212);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__ionic_native_status_bar__ = __webpack_require__(200);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__ionic_native_splash_screen__ = __webpack_require__(203);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__providers_auth_service_auth_service__ = __webpack_require__(205);
@@ -1344,7 +1404,7 @@ var AppModule = (function () {
 
 /***/ }),
 
-/***/ 284:
+/***/ 285:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1353,17 +1413,17 @@ var AppModule = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(200);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(203);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_Storage__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_Storage__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_welcome_welcome__ = __webpack_require__(204);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_home_home__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_home_home__ = __webpack_require__(44);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_setting_profile_setting_profile__ = __webpack_require__(107);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_liste_dem_entreprise_liste_dem_entreprise__ = __webpack_require__(206);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_liste_enseignant_liste_enseignant__ = __webpack_require__(207);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_liste_entreprise_liste_entreprise__ = __webpack_require__(294);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_liste_etudiant_liste_etudiant__ = __webpack_require__(208);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_liste_stage_prop_liste_stage_prop__ = __webpack_require__(209);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_liste_stage_pub_liste_stage_pub__ = __webpack_require__(210);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_pub_stage_pub_stage__ = __webpack_require__(211);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_liste_entreprise_liste_entreprise__ = __webpack_require__(208);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_liste_etudiant_liste_etudiant__ = __webpack_require__(209);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_liste_stage_prop_liste_stage_prop__ = __webpack_require__(210);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_liste_stage_pub_liste_stage_pub__ = __webpack_require__(211);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_pub_stage_pub_stage__ = __webpack_require__(212);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1453,7 +1513,7 @@ var MyApp = (function () {
         __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* Nav */])
     ], MyApp.prototype, "nav", void 0);
     MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"E:\Projet\Ionic\gestion-projet-ionic\gestion-projet-ionic\src\app\app.html"*/'<ion-menu [content]="content">\n    <ion-header>\n        <ion-toolbar>\n            <ion-title>Menu</ion-title>\n        </ion-toolbar>\n    </ion-header>\n\n    <ion-content>\n        <ion-list>\n            <a *ngFor="let p of pages">\n                <button menuClose ion-item color={{p.color}} *ngIf="p.type==-1 || p.type==user.type" (click)="openPage(p)">\n                  {{p.title}}\n                 </button>\n            </a>\n        </ion-list>\n    </ion-content>\n\n\n\n</ion-menu>\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>'/*ion-inline-end:"E:\Projet\Ionic\gestion-projet-ionic\gestion-projet-ionic\src\app\app.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"D:\xampp\htdocs\gestion-projet-ionic\src\app\app.html"*/'<ion-menu [content]="content">\n\n    <ion-header>\n\n        <ion-toolbar>\n\n            <ion-title>Menu</ion-title>\n\n        </ion-toolbar>\n\n    </ion-header>\n\n\n\n    <ion-content>\n\n       \n\n        <ion-list>\n\n            <a *ngFor="let p of pages">\n\n                <button menuClose ion-item color={{p.color}} *ngIf="p?.type==-1 || p.type==user?.type" (click)="openPage(p)">\n\n                  {{p.title}}\n\n                 </button>\n\n            </a>\n\n        </ion-list>\n\n    </ion-content>\n\n\n\n\n\n\n\n</ion-menu>\n\n\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>'/*ion-inline-end:"D:\xampp\htdocs\gestion-projet-ionic\src\app\app.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4__ionic_Storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
     ], MyApp);
@@ -1461,67 +1521,6 @@ var MyApp = (function () {
 }());
 
 //# sourceMappingURL=app.component.js.map
-
-/***/ }),
-
-/***/ 294:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ListeEntreprisePage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__vars__ = __webpack_require__(82);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common_http__ = __webpack_require__(42);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-/**
- * Generated class for the ListeEntreprisePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-var ListeEntreprisePage = (function () {
-    function ListeEntreprisePage(navCtrl, navParams, http) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.http = http;
-    }
-    ListeEntreprisePage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad ListeEntreprisePage');
-        this.getAllEntreprises();
-    };
-    ListeEntreprisePage.prototype.getAllEntreprises = function () {
-        var _this = this;
-        this.http.get(__WEBPACK_IMPORTED_MODULE_2__vars__["a" /* vars */].url + "/api/entreprise/all/3").subscribe(function (res) {
-            _this.Entreprises = res;
-            console.log("etu" + _this.Entreprises);
-        }, function (err) {
-            console.log("Problème de connexion");
-        });
-    };
-    ListeEntreprisePage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-liste-entreprise',template:/*ion-inline-start:"E:\Projet\Ionic\gestion-projet-ionic\gestion-projet-ionic\src\pages\liste-entreprise\liste-entreprise.html"*/'<!--\n  Generated template for the ListeEntreprisePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar>\n        <button ion-button menuToggle>\n          <ion-icon name="menu"></ion-icon>\n        </button>\n        <ion-title>Liste Entreprise</ion-title>\n    </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    <ion-list>\n        <button ion-item *ngFor="let item of Entreprises"> \n                {{item.nom}} {{item.prenom}} \n                <div class="item-note" item-end>\n                    {{item.nom_ent}}\n                  </div> \n              </button>\n    </ion-list>\n</ion-content>'/*ion-inline-end:"E:\Projet\Ionic\gestion-projet-ionic\gestion-projet-ionic\src\pages\liste-entreprise\liste-entreprise.html"*/,
-        }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["a" /* HttpClient */]) === "function" && _c || Object])
-    ], ListeEntreprisePage);
-    return ListeEntreprisePage;
-    var _a, _b, _c;
-}());
-
-//# sourceMappingURL=liste-entreprise.js.map
 
 /***/ }),
 
@@ -1570,7 +1569,7 @@ var ListPage = (function () {
     };
     ListPage = ListPage_1 = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-list',template:/*ion-inline-start:"E:\Projet\Ionic\gestion-projet-ionic\gestion-projet-ionic\src\pages\list\list.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>List</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-list>\n    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">\n      <ion-icon [name]="item.icon" item-start></ion-icon>\n      {{item.title}}\n      <div class="item-note" item-end>\n        {{item.note}}\n      </div>\n    </button>\n  </ion-list>\n  <div *ngIf="selectedItem" padding>\n    You navigated here from <b>{{selectedItem.title}}</b>\n  </div>\n</ion-content>\n'/*ion-inline-end:"E:\Projet\Ionic\gestion-projet-ionic\gestion-projet-ionic\src\pages\list\list.html"*/
+            selector: 'page-list',template:/*ion-inline-start:"D:\xampp\htdocs\gestion-projet-ionic\src\pages\list\list.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>List</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <ion-list>\n\n    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">\n\n      <ion-icon [name]="item.icon" item-start></ion-icon>\n\n      {{item.title}}\n\n      <div class="item-note" item-end>\n\n        {{item.note}}\n\n      </div>\n\n    </button>\n\n  </ion-list>\n\n  <div *ngIf="selectedItem" padding>\n\n    You navigated here from <b>{{selectedItem.title}}</b>\n\n  </div>\n\n</ion-content>\n\n'/*ion-inline-end:"D:\xampp\htdocs\gestion-projet-ionic\src\pages\list\list.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
     ], ListPage);
@@ -1582,14 +1581,30 @@ var ListPage = (function () {
 
 /***/ }),
 
-/***/ 43:
+/***/ 31:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return vars; });
+var vars = (function () {
+    function vars() {
+    }
+    vars.url = "http://127.0.0.1:8000";
+    return vars;
+}());
+
+//# sourceMappingURL=vars.js.map
+
+/***/ }),
+
+/***/ 44:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_Storage__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_Storage__ = __webpack_require__(30);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1620,7 +1635,7 @@ var HomePage = (function () {
     };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"E:\Projet\Ionic\gestion-projet-ionic\gestion-projet-ionic\src\pages\home\home.html"*/'<ion-header>\n    <ion-navbar>\n        <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n        <ion-title>Accueil</ion-title>\n    </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n    <h3>Bienvenu !</h3>\n\n    <p>\n        {{ data.nom }} {{data.prenom}}\n    </p>\n\n\n    <div *ngIf=\'data.type == 4\'>\n        <ion-card>\n            <ion-card-content>\n                Votre inscription est en cours de validation,<br> Merci de votre collaboration.\n            </ion-card-content>\n        </ion-card>\n    </div>\n\n</ion-content>'/*ion-inline-end:"E:\Projet\Ionic\gestion-projet-ionic\gestion-projet-ionic\src\pages\home\home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"D:\xampp\htdocs\gestion-projet-ionic\src\pages\home\home.html"*/'<ion-header>\n\n    <ion-navbar>\n\n        <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n        <ion-title>Accueil</ion-title>\n\n    </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n    <h3>Bienvenu !</h3>\n\n\n\n    <p>\n\n        {{ data.nom }} {{data.prenom}}\n\n    </p>\n\n\n\n\n\n    <div *ngIf=\'data.type == 4\'>\n\n        <ion-card>\n\n            <ion-card-content>\n\n                Votre inscription est en cours de validation,<br> Merci de votre collaboration.\n\n            </ion-card-content>\n\n        </ion-card>\n\n    </div>\n\n\n\n</ion-content>'/*ion-inline-end:"D:\xampp\htdocs\gestion-projet-ionic\src\pages\home\home.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__ionic_Storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]])
     ], HomePage);
@@ -1629,23 +1644,7 @@ var HomePage = (function () {
 
 //# sourceMappingURL=home.js.map
 
-/***/ }),
-
-/***/ 82:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return vars; });
-var vars = (function () {
-    function vars() {
-    }
-    vars.url = "http://127.0.0.1:8001";
-    return vars;
-}());
-
-//# sourceMappingURL=vars.js.map
-
 /***/ })
 
-},[212]);
+},[213]);
 //# sourceMappingURL=main.js.map

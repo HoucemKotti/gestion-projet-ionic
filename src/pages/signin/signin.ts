@@ -48,7 +48,7 @@ export class SigninPage {
     else {
       this.erreur = "";
     }
-
+    this.erreur = "";
     if (this.erreur == "") {
       this.showLoading();
       this.http.post(vars.url + '/api/user', {
