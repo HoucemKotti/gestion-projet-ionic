@@ -6,10 +6,11 @@
     </ion-header>
 
     <ion-content>
+
         <ion-list>
             <a *ngFor="let p of pages">
                 <button menuClose ion-item color={{p.color}} *ngIf="p.type==-1 || p.type==user?.type" (click)="openPage(p)">
-                  {{p.title}}
+                {{p.title}}
                  </button>
             </a>
         </ion-list>

@@ -41,7 +41,7 @@ export class PropStagePage {
 
   proposer() {
     console.log("ID Prop"+this.data.id);
-    this.http.post(vars.url + '/api/stagePub', {
+    this.http.post(vars.url + '/api/stageProp', {
       "sujet_stage": this.stage.sujet_stage,
       "desc_stage": this.stage.desc_stage,
       "date_deb": this.stage.date_deb,
