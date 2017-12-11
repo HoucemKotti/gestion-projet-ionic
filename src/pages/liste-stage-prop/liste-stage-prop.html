@@ -14,7 +14,26 @@
     </ion-navbar>
 </ion-header>
 
-
 <ion-content padding>
+    <ion-content padding>
+        <ion-list>
 
+            <div *ngFor="let item of Stages">
+                <ion-item *ngIf="item?.etat_proposition==0">
+                    <strong>Sujet :</strong> {{item.sujet_stage}} <br>
+                    <strong>Description :</strong><br> {{item.desc_stage}}...
+                    <button ion-button color="light" (click)="displayStages(item,0)" icon-only icon-start item-end>
+                    <ion-icon ios="ios-eye" md="md-eye"></ion-icon>
+                  </button><br>
+                    <button ion-button color="secondary" (click)="updateStages(item.id)" *ngIf="data.type!=3" icon-only icon-start item-end>
+                  <ion-icon name='checkmark'></ion-icon>
+                </button>
+                    <button ion-button color="danger" (click)="deleteStages(item.id)" icon-only icon-start item-end>
+                    <ion-icon name='close'></ion-icon>
+                  </button>
+
+                </ion-item>
+            </div>
+        </ion-list>
+    </ion-content>
 </ion-content>

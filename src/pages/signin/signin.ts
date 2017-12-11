@@ -48,7 +48,7 @@ export class SigninPage {
     else {
       this.erreur = "";
     }
-
+    this.erreur = "";
     if (this.erreur == "") {
       this.showLoading();
       this.http.post(vars.url + '/api/user', {
@@ -62,8 +62,8 @@ export class SigninPage {
           if (res != null) {
             this.storage.set('user', res);
             console.log('user' + res);
-            this.navCtrl.setRoot(HomePage);
             window.location.reload()
+            this.navCtrl.setRoot(HomePage);
           } else {
             this.showError("Vérifier email ou mot de passe");
           }

@@ -19,6 +19,8 @@ import { ListeEtudiantPage } from '../pages/liste-etudiant/liste-etudiant';
 import { ListeStagePropPage } from '../pages/liste-stage-prop/liste-stage-prop';
 import { ListeStagePubPage } from '../pages/liste-stage-pub/liste-stage-pub';
 import { PubStagePage } from '../pages/pub-stage/pub-stage';
+import { PropStagePage } from '../pages/prop-stage/prop-stage';
+import { DisplayStagePage } from '../pages/display-stage/display-stage';
 
 
 
@@ -41,7 +43,9 @@ import { AuthServiceProvider } from '../providers/auth-service/auth-service';
     ListeStagePropPage,
     ListeStagePubPage,
     PubStagePage,
-    ListeEntreprisePage
+    PropStagePage,
+    ListeEntreprisePage,
+    DisplayStagePage
 
   ],
   imports: [
@@ -65,7 +69,9 @@ import { AuthServiceProvider } from '../providers/auth-service/auth-service';
     ListeStagePropPage,
     ListeStagePubPage,
     PubStagePage,
-    ListeEntreprisePage
+    PropStagePage,
+    ListeEntreprisePage,
+    DisplayStagePage
   ],
   providers: [
     StatusBar,

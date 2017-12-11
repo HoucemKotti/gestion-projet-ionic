@@ -25683,6 +25683,21 @@ page-home ion-card-content {
   color: #fff;
 }
 
+page-pub-stage .login-content .logo-row {
+  padding-top: 50px;
+  padding-bottom: 20px;
+}
+
+page-pub-stage ion-card-header {
+  background-color: #ef473a;
+  color: #fff;
+}
+
+page-pub-stage ion-card-content {
+  background-color: #ef473a;
+  color: #fff;
+}
+
 page-setting-profile .erreur-content {
   background-color: #ef473a;
   color: #fff;

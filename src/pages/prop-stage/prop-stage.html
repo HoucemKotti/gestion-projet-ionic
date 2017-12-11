@@ -1,0 +1,57 @@
+<!--
+  Generated template for the PropStagePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar>
+        <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+        <ion-title>Proposer Stage</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+
+<ion-content padding>
+    <div class="login-box">
+        <form (ngSubmit)="proposer()" #registerForm="ngForm">
+            <ion-row>
+                <ion-col>
+                    <ion-list inset>
+
+                        <ion-item>
+                            <ion-label floating>Sujet</ion-label>
+                            <ion-input type="text" name="sujet_stage" [(ngModel)]="stage.sujet_stage" required></ion-input>
+                        </ion-item>
+
+                        <ion-item>
+                            <ion-label floating>Description</ion-label>
+                            <ion-textarea type="text" name="desc_stage" [(ngModel)]="stage.desc_stage" required></ion-textarea>
+                        </ion-item>
+
+                        <ion-item>
+                            <ion-label floating>Date Début du Stage</ion-label>
+                            <ion-datetime min="2017" max="2020-10-31" name="date_deb" [(ngModel)]="stage.date_deb" required></ion-datetime>
+                        </ion-item>
+
+                        <ion-item>
+                            <ion-label floating>Date Fin du Stage</ion-label>
+                            <ion-datetime name="date_fin" min="2017" max="2020-10-31" [(ngModel)]="stage.date_fin" required></ion-datetime>
+                        </ion-item>
+                    </ion-list>
+                </ion-col>
+            </ion-row>
+
+            <ion-row>
+                <ion-col class="signup-col">
+                    <button ion-button full type="submit" [disabled]="!registerForm.form.valid">Publier</button>
+                </ion-col>
+            </ion-row>
+        </form>
+    </div>
+</ion-content>

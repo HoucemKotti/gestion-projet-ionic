@@ -18,7 +18,9 @@ import { ListeEntreprisePage } from '../pages/liste-entreprise/liste-entreprise'
 import { ListeEtudiantPage } from '../pages/liste-etudiant/liste-etudiant';
 import { ListeStagePropPage } from '../pages/liste-stage-prop/liste-stage-prop';
 import { ListeStagePubPage } from '../pages/liste-stage-pub/liste-stage-pub';
+
 import { PubStagePage } from '../pages/pub-stage/pub-stage';
+import { PropStagePage } from '../pages/prop-stage/prop-stage';
 
 
 export interface MenuItem {
@@ -65,7 +67,7 @@ export class MyApp {
       { title: 'Mon Compte', component: SettingProfilePage, color: 'light', type: 2 },
 
       { title: 'Mon Compte', component: SettingProfilePage, color: 'light', type: 3 },
-      { title: 'Publier Stage', component: PubStagePage, color: 'light', type: 3 },
+      { title: 'Proposer Stage', component: PropStagePage, color: 'light', type: 3 },
       { title: 'Liste Stages proposés', component: ListeStagePropPage, color: 'light', type: 3 },
       { title: 'Liste Stages publiés', component: ListeStagePubPage, color: 'light', type: 3 },
       { title: 'Mon Compte', component: SettingProfilePage, color: 'light', type: 4 },

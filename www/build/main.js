@@ -1,17 +1,17 @@
-webpackJsonp([1],{
+webpackJsonp([2],{
 
-/***/ 105:
+/***/ 107:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SignupPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(42);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_Storage__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__signin_signin__ = __webpack_require__(106);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__home_home__ = __webpack_require__(43);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__vars__ = __webpack_require__(82);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_Storage__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__signin_signin__ = __webpack_require__(108);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__home_home__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__vars__ = __webpack_require__(14);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -271,7 +271,7 @@ var SignupPage = (function () {
     };
     SignupPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-signup',template:/*ion-inline-start:"E:\Projet\Ionic\gestion-projet-ionic\gestion-projet-ionic\src\pages\signup\signup.html"*/'<!--\n  Generated template for the SignupPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar>\n        <ion-title>S\'inscrire</ion-title>\n    </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n    <ng-template *ngIf="status==\'Status\';then Status; "></ng-template>\n    <ng-template *ngIf="status==\'enseignant\';then enseignant; "></ng-template>\n    <ng-template *ngIf="status==\'etudiant\';then etudiant; "></ng-template>\n    <ng-template *ngIf="status==\'entreprise\';then entreprise;"></ng-template>\n    <ng-template #Status>\n        Choisir votre status\n        <ion-item>\n            <ion-label>Status</ion-label>\n            <ion-select name="etat" [(ngModel)]="status" (ngModelChange)="print()">\n                <option disabled selected value="-1">---- Votre Status ----</option>\n                <ion-option *ngFor="let statut of statuses" [value]="statut.value">{{statut.name}}</ion-option>\n            </ion-select>\n        </ion-item>\n    </ng-template>\n    <ng-template #etudiant>\n        <!--<form (ngSubmit)="submitEtudiant()">-->\n\n        <form (ngSubmit)="submitEtudiant()" #registerForm="ngForm">\n            <ion-item>\n                <ion-label color="primary">Nom</ion-label>\n                <ion-input type="text" [(ngModel)]="nom" name="nom" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Prenom</ion-label>\n                <ion-input type="text" [(ngModel)]="prenom" name="prenom" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Cin</ion-label>\n                <ion-input type="number" [(ngModel)]="cin" name="cin" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Email</ion-label>\n                <ion-input type="email" [(ngModel)]="email" name="email" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Mot de passe</ion-label>\n                <ion-input type="password" [(ngModel)]="pass" name="pass" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Confirmer mot de passe</ion-label>\n                <ion-input type="password" [(ngModel)]="comf_pass" name="comf_pass" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Tel</ion-label>\n                <ion-input type="number" [(ngModel)]="tel" name="tel" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Date de naissance</ion-label>\n                <ion-datetime [(ngModel)]="dateNess" name="dateNess" required></ion-datetime>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Cycle </ion-label>\n                <ion-input type="text" [(ngModel)]="cy_etud" name="cy_etud" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Niveau d\'étude</ion-label>\n                <ion-input type="text" [(ngModel)]="niv_etud" name="niv_etud" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Specialite</ion-label>\n                <ion-input type="text" [(ngModel)]="specialite" name="specialite"></ion-input>\n            </ion-item>\n\n            <div *ngIf=\'erreur != ""\'>\n                <ion-card>\n                    <ion-card-content>\n                        {{erreur}}\n                    </ion-card-content>\n                </ion-card>\n            </div>\n            <button ion-button type="submit" block [disabled]="!registerForm.form.valid">Inscription</button>\n        </form>\n        <button ion-button color="dark" (click)="changeStatut()" block>\n      Return\n    </button>\n        <button ion-button class="register-btn" block clear (click)="createAccount()">Déja inscrire, Connexion</button>\n\n    </ng-template>\n\n    <ng-template #entreprise>\n        <form (ngSubmit)="submitEntreprise()" #registerFormEntreprise="ngForm">\n            <ion-item>\n                <ion-label color="primary">Nom</ion-label>\n                <ion-input type="text" [(ngModel)]="nom" name="nom" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Prenom</ion-label>\n                <ion-input type="text" [(ngModel)]="prenom" name="prenom" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Cin</ion-label>\n                <ion-input type="number" [(ngModel)]="cin" name="cin" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Email</ion-label>\n                <ion-input type="email" [(ngModel)]="email" name="email" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Mot de passe</ion-label>\n                <ion-input type="password" [(ngModel)]="pass" name="pass" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Confirmer mot de passe</ion-label>\n                <ion-input type="password" [(ngModel)]="comf_pass" name="comf_pass" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Tel</ion-label>\n                <ion-input type="number" [(ngModel)]="tel" name="tel"></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Nom Entreprise</ion-label>\n                <ion-input [(ngModel)]="nomEntreprise" name="nomEntreprise" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Tel Entreprise </ion-label>\n                <ion-input type="text" [(ngModel)]="telEntreprise" name="telEntreprise" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Adresse Entreprise</ion-label>\n                <ion-input type="text" [(ngModel)]="adresseEntreprise" name="adresseEntreprise" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Fax Entreprise</ion-label>\n                <ion-input type="number" [(ngModel)]="faxEntreprise" name="faxEntreprise"></ion-input>\n            </ion-item>\n\n            <div *ngIf=\'erreur != ""\'>\n                <ion-card>\n                    <ion-card-content>\n                        {{erreur}}\n                    </ion-card-content>\n                </ion-card>\n            </div>\n            <button ion-button type="submit" block [disabled]="!registerFormEntreprise.form.valid">Inscription</button>\n        </form>\n        <button ion-button color="dark" (click)="changeStatut()" block>\n      Return\n    </button>\n        <button ion-button class="register-btn" block clear (click)="createAccount()">Déja inscrire, Connexion</button>\n\n    </ng-template>\n\n    <ng-template #enseignant>\n        <form (ngSubmit)="submitEnseignant()" #registerFormEnseignante="ngForm">\n            <ion-item>\n                <ion-label color="primary">Nom</ion-label>\n                <ion-input type="text" [(ngModel)]="nom" name="nom" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Prenom</ion-label>\n                <ion-input type="text" [(ngModel)]="prenom" name="prenom" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Cin</ion-label>\n                <ion-input type="number" [(ngModel)]="cin" name="cin" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Email</ion-label>\n                <ion-input type="email" [(ngModel)]="email" name="email" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Mot de passe</ion-label>\n                <ion-input type="password" [(ngModel)]="pass" name="pass" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Confirmer mot de passe</ion-label>\n                <ion-input type="password" [(ngModel)]="comf_pass" name="comf_pass" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Tel</ion-label>\n                <ion-input type="number" [(ngModel)]="tel" name="tel"></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Grade</ion-label>\n                <ion-input type="text" [(ngModel)]="grade" name="grade"></ion-input>\n            </ion-item>\n\n            <div *ngIf=\'erreur != ""\'>\n                <ion-card>\n                    <ion-card-content>\n                        {{erreur}}\n                    </ion-card-content>\n                </ion-card>\n            </div>\n            <button ion-button type="submit" block [disabled]="!registerFormEnseignante.form.valid">Inscription</button>\n        </form>\n        <button ion-button color="dark" (click)="changeStatut()" block>\n      Return\n    </button>\n        <button ion-button class="register-btn" block clear (click)="createAccount()">Déja inscrire, Connexion</button>\n\n    </ng-template>\n</ion-content>'/*ion-inline-end:"E:\Projet\Ionic\gestion-projet-ionic\gestion-projet-ionic\src\pages\signup\signup.html"*/,
+            selector: 'page-signup',template:/*ion-inline-start:"E:\Projet\Ionic\gestion-projet-ionic\gestion-projet-ionic\src\pages\signup\signup.html"*/'<!--\n  Generated template for the SignupPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar>\n        <ion-title>S\'inscrire</ion-title>\n    </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n    <ng-template *ngIf="status==\'Status\';then Status; "></ng-template>\n    <ng-template *ngIf="status==\'enseignant\';then enseignant; "></ng-template>\n    <ng-template *ngIf="status==\'etudiant\';then etudiant; "></ng-template>\n    <ng-template *ngIf="status==\'entreprise\';then entreprise;"></ng-template>\n    <ng-template #Status>\n        Choisir votre status\n        <ion-item>\n            <ion-label>Status</ion-label>\n            <ion-select name="etat" [(ngModel)]="status" (ngModelChange)="print()">\n                <option disabled selected value="-1">---- Votre Status ----</option>\n                <ion-option *ngFor="let statut of statuses" [value]="statut.value">{{statut.name}}</ion-option>\n            </ion-select>\n        </ion-item>\n    </ng-template>\n    <ng-template #etudiant>\n        <!--<form (ngSubmit)="submitEtudiant()">-->\n\n        <form (ngSubmit)="submitEtudiant()" #registerForm="ngForm">\n            <ion-item>\n                <ion-label color="primary">Nom</ion-label>\n                <ion-input type="text" [(ngModel)]="nom" name="nom" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Prenom</ion-label>\n                <ion-input type="text" [(ngModel)]="prenom" name="prenom" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Cin</ion-label>\n                <ion-input type="number" [(ngModel)]="cin" name="cin" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Email</ion-label>\n                <ion-input type="email" [(ngModel)]="email" name="email" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Mot de passe</ion-label>\n                <ion-input type="password" [(ngModel)]="pass" name="pass" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Confirmer mot de passe</ion-label>\n                <ion-input type="password" [(ngModel)]="comf_pass" name="comf_pass" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Tel</ion-label>\n                <ion-input type="number" [(ngModel)]="tel" name="tel" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Date de naissance</ion-label>\n                <ion-input type="date" [(ngModel)]="dateNess" name="dateNess" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Cycle </ion-label>\n                <ion-input type="text" [(ngModel)]="cy_etud" name="cy_etud" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Niveau d\'étude</ion-label>\n                <ion-input type="text" [(ngModel)]="niv_etud" name="niv_etud" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Specialite</ion-label>\n                <ion-input type="text" [(ngModel)]="specialite" name="specialite"></ion-input>\n            </ion-item>\n\n            <div *ngIf=\'erreur != ""\'>\n                <ion-card>\n                    <ion-card-content>\n                        {{erreur}}\n                    </ion-card-content>\n                </ion-card>\n            </div>\n            <button ion-button type="submit" block [disabled]="!registerForm.form.valid">Inscription</button>\n        </form>\n        <button ion-button color="dark" (click)="changeStatut()" block>\n      Return\n    </button>\n        <button ion-button class="register-btn" block clear (click)="createAccount()">Déja inscrire, Connexion</button>\n\n    </ng-template>\n\n    <ng-template #entreprise>\n        <form (ngSubmit)="submitEntreprise()" #registerFormEntreprise="ngForm">\n            <ion-item>\n                <ion-label color="primary">Nom</ion-label>\n                <ion-input type="text" [(ngModel)]="nom" name="nom" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Prenom</ion-label>\n                <ion-input type="text" [(ngModel)]="prenom" name="prenom" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Cin</ion-label>\n                <ion-input type="number" [(ngModel)]="cin" name="cin" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Email</ion-label>\n                <ion-input type="email" [(ngModel)]="email" name="email" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Mot de passe</ion-label>\n                <ion-input type="password" [(ngModel)]="pass" name="pass" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Confirmer mot de passe</ion-label>\n                <ion-input type="password" [(ngModel)]="comf_pass" name="comf_pass" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Tel</ion-label>\n                <ion-input type="number" [(ngModel)]="tel" name="tel"></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Nom Entreprise</ion-label>\n                <ion-input [(ngModel)]="nomEntreprise" name="nomEntreprise" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Tel Entreprise </ion-label>\n                <ion-input type="text" [(ngModel)]="telEntreprise" name="telEntreprise" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Adresse Entreprise</ion-label>\n                <ion-input type="text" [(ngModel)]="adresseEntreprise" name="adresseEntreprise" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Fax Entreprise</ion-label>\n                <ion-input type="number" [(ngModel)]="faxEntreprise" name="faxEntreprise"></ion-input>\n            </ion-item>\n\n            <div *ngIf=\'erreur != ""\'>\n                <ion-card>\n                    <ion-card-content>\n                        {{erreur}}\n                    </ion-card-content>\n                </ion-card>\n            </div>\n            <button ion-button type="submit" block [disabled]="!registerFormEntreprise.form.valid">Inscription</button>\n        </form>\n        <button ion-button color="dark" (click)="changeStatut()" block>\n      Return\n    </button>\n        <button ion-button class="register-btn" block clear (click)="createAccount()">Déja inscrire, Connexion</button>\n\n    </ng-template>\n\n    <ng-template #enseignant>\n        <form (ngSubmit)="submitEnseignant()" #registerFormEnseignante="ngForm">\n            <ion-item>\n                <ion-label color="primary">Nom</ion-label>\n                <ion-input type="text" [(ngModel)]="nom" name="nom" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Prenom</ion-label>\n                <ion-input type="text" [(ngModel)]="prenom" name="prenom" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Cin</ion-label>\n                <ion-input type="number" [(ngModel)]="cin" name="cin" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Email</ion-label>\n                <ion-input type="email" [(ngModel)]="email" name="email" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Mot de passe</ion-label>\n                <ion-input type="password" [(ngModel)]="pass" name="pass" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Confirmer mot de passe</ion-label>\n                <ion-input type="password" [(ngModel)]="comf_pass" name="comf_pass" required></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Tel</ion-label>\n                <ion-input type="number" [(ngModel)]="tel" name="tel"></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label color="primary">Grade</ion-label>\n                <ion-input type="text" [(ngModel)]="grade" name="grade"></ion-input>\n            </ion-item>\n\n            <div *ngIf=\'erreur != ""\'>\n                <ion-card>\n                    <ion-card-content>\n                        {{erreur}}\n                    </ion-card-content>\n                </ion-card>\n            </div>\n            <button ion-button type="submit" block [disabled]="!registerFormEnseignante.form.valid">Inscription</button>\n        </form>\n        <button ion-button color="dark" (click)="changeStatut()" block>\n      Return\n    </button>\n        <button ion-button class="register-btn" block clear (click)="createAccount()">Déja inscrire, Connexion</button>\n\n    </ng-template>\n</ion-content>'/*ion-inline-end:"E:\Projet\Ionic\gestion-projet-ionic\gestion-projet-ionic\src\pages\signup\signup.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__ionic_Storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */]])
     ], SignupPage);
@@ -282,19 +282,19 @@ var SignupPage = (function () {
 
 /***/ }),
 
-/***/ 106:
+/***/ 108:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SigninPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_auth_service_auth_service__ = __webpack_require__(205);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__signup_signup__ = __webpack_require__(105);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__home_home__ = __webpack_require__(43);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_common_http__ = __webpack_require__(42);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_Storage__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__vars__ = __webpack_require__(82);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_auth_service_auth_service__ = __webpack_require__(209);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__signup_signup__ = __webpack_require__(107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__home_home__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_common_http__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_Storage__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__vars__ = __webpack_require__(14);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -349,6 +349,7 @@ var SigninPage = (function () {
         else {
             this.erreur = "";
         }
+        this.erreur = "";
         if (this.erreur == "") {
             this.showLoading();
             this.http.post(__WEBPACK_IMPORTED_MODULE_7__vars__["a" /* vars */].url + '/api/user', {
@@ -361,8 +362,8 @@ var SigninPage = (function () {
                 if (res != null) {
                     _this.storage.set('user', res);
                     console.log('user' + res);
-                    _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_4__home_home__["a" /* HomePage */]);
                     window.location.reload();
+                    _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_4__home_home__["a" /* HomePage */]);
                 }
                 else {
                     _this.showError("Vérifier email ou mot de passe");
@@ -390,27 +391,123 @@ var SigninPage = (function () {
     };
     SigninPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-signin',template:/*ion-inline-start:"E:\Projet\Ionic\gestion-projet-ionic\gestion-projet-ionic\src\pages\signin\signin.html"*/'<!--\n  Generated template for the SigninPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar>\n        <ion-title>signin</ion-title>\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content class="login-content" padding>\n    <ion-row class="logo-row">\n        <ion-col></ion-col>\n        <ion-col width-67>\n            <img src="assets/images/logo.png" />\n        </ion-col>\n        <ion-col></ion-col>\n    </ion-row>\n    <div class="login-box">\n        <form (ngSubmit)="login()" #registerForm="ngForm">\n            <ion-row>\n                <ion-col>\n                    <ion-list inset>\n\n                        <ion-item>\n                            <ion-input type="text" placeholder="Email" name="email" [(ngModel)]="user.email" required></ion-input>\n                        </ion-item>\n\n                        <ion-item>\n                            <ion-input type="password" placeholder="Password" name="password" [(ngModel)]="user.password" required></ion-input>\n                        </ion-item>\n\n                    </ion-list>\n                </ion-col>\n            </ion-row>\n            <div *ngIf=\'erreur != ""\'>\n                <ion-card>\n                    <ion-card-content>\n                        {{erreur}}\n                    </ion-card-content>\n                </ion-card>\n            </div>\n            <ion-row>\n                <ion-col class="signup-col">\n                    <button ion-button full type="submit" [disabled]="!registerForm.form.valid">Login</button>\n                </ion-col>\n            </ion-row>\n\n        </form>\n        <button ion-button full clear (click)="createAccount()">Créer compte</button>\n    </div>\n</ion-content>'/*ion-inline-end:"E:\Projet\Ionic\gestion-projet-ionic\gestion-projet-ionic\src\pages\signin\signin.html"*/,
+            selector: 'page-signin',template:/*ion-inline-start:"E:\Projet\Ionic\gestion-projet-ionic\gestion-projet-ionic\src\pages\signin\signin.html"*/'<!--\n  Generated template for the SigninPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar>\n        <ion-title>S\'authentifier</ion-title>\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content class="login-content" padding>\n    <ion-row class="logo-row">\n        <ion-col></ion-col>\n        <ion-col width-67>\n            <img src="assets/images/logo.png" />\n        </ion-col>\n        <ion-col></ion-col>\n    </ion-row>\n    <div class="login-box">\n        <form (ngSubmit)="login()" #registerForm="ngForm">\n            <ion-row>\n                <ion-col>\n                    <ion-list inset>\n\n                        <ion-item>\n                            <ion-input type="text" placeholder="Email" name="email" [(ngModel)]="user.email" required></ion-input>\n                        </ion-item>\n\n                        <ion-item>\n                            <ion-input type="password" placeholder="Password" name="password" [(ngModel)]="user.password" required></ion-input>\n                        </ion-item>\n\n                    </ion-list>\n                </ion-col>\n            </ion-row>\n            <div *ngIf=\'erreur != ""\'>\n                <ion-card>\n                    <ion-card-content>\n                        {{erreur}}\n                    </ion-card-content>\n                </ion-card>\n            </div>\n            <ion-row>\n                <ion-col class="signup-col">\n                    <button ion-button full type="submit" [disabled]="!registerForm.form.valid">Login</button>\n                </ion-col>\n            </ion-row>\n\n        </form>\n        <button ion-button full clear (click)="createAccount()">Créer compte</button>\n    </div>\n</ion-content>'/*ion-inline-end:"E:\Projet\Ionic\gestion-projet-ionic\gestion-projet-ionic\src\pages\signin\signin.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_6__ionic_Storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_5__angular_common_http__["a" /* HttpClient */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_auth_service_auth_service__["a" /* AuthServiceProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_6__ionic_Storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__ionic_Storage__["b" /* Storage */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_5__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__angular_common_http__["a" /* HttpClient */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_2__providers_auth_service_auth_service__["a" /* AuthServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_auth_service_auth_service__["a" /* AuthServiceProvider */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */]) === "function" && _g || Object])
     ], SigninPage);
     return SigninPage;
+    var _a, _b, _c, _d, _e, _f, _g;
 }());
 
 //# sourceMappingURL=signin.js.map
 
 /***/ }),
 
-/***/ 107:
+/***/ 109:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ListeStagePubPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__vars__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__display_stage_display_stage__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_Storage__ = __webpack_require__(15);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+/**
+ * Generated class for the ListeStagePubPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var ListeStagePubPage = (function () {
+    function ListeStagePubPage(storage, loadingCtrl, navCtrl, navParams, http) {
+        this.storage = storage;
+        this.loadingCtrl = loadingCtrl;
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.http = http;
+        this.data = {};
+        this.lien = "/api/stage/1";
+        this.getData();
+    }
+    ListeStagePubPage.prototype.getData = function () {
+        var _this = this;
+        this.storage.get('user').then(function (val) {
+            if (val) {
+                _this.data = val;
+                console.log(_this.data);
+                _this.getAllStages();
+            }
+        });
+    };
+    ListeStagePubPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad ListeStagePubPage');
+    };
+    ListeStagePubPage.prototype.getAllStages = function () {
+        var _this = this;
+        if (this.data.type == 3)
+            this.lien = "/api/stageByProp/" + this.data.id;
+        console.log(this.lien);
+        this.http.get(__WEBPACK_IMPORTED_MODULE_3__vars__["a" /* vars */].url + this.lien).subscribe(function (res) {
+            _this.Stages = res;
+            console.log("Stages" + _this.Stages);
+        }, function (err) {
+            console.log("Problème de connexion");
+        });
+    };
+    ListeStagePubPage.prototype.displayStages = function (item, action) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__display_stage_display_stage__["a" /* DisplayStagePage */], {
+            'item': item,
+            'action': action
+        });
+    };
+    ListeStagePubPage.prototype.showLoading = function () {
+        this.loading = this.loadingCtrl.create({
+            content: 'Please wait...',
+            dismissOnPageChange: true
+        });
+        this.loading.present();
+    };
+    ListeStagePubPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-liste-stage-pub',template:/*ion-inline-start:"E:\Projet\Ionic\gestion-projet-ionic\gestion-projet-ionic\src\pages\liste-stage-pub\liste-stage-pub.html"*/'<!--\n  Generated template for the ListeStagePubPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar>\n        <button ion-button menuToggle>\n          <ion-icon name="menu"></ion-icon>\n        </button>\n        <ion-title>List Stage</ion-title>\n    </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n    <ion-content padding>\n        <ion-list>\n\n            <div *ngFor="let item of Stages">\n                <ion-item *ngIf="item.etat_proposition==1">\n                    <strong>Sujet :</strong> {{item.sujet_stage}} <br>\n                    <strong>Description :</strong><br> {{item.desc_stage}}...\n                    <button ion-button color="light" (click)="displayStages(item,1)" icon-only icon-start item-end>\n                    <ion-icon ios="ios-eye" md="md-eye"></ion-icon>\n                  </button>\n                </ion-item>\n            </div>\n        </ion-list>\n    </ion-content>\n</ion-content>'/*ion-inline-end:"E:\Projet\Ionic\gestion-projet-ionic\gestion-projet-ionic\src\pages\liste-stage-pub\liste-stage-pub.html"*/,
+        }),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_5__ionic_Storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__ionic_Storage__["b" /* Storage */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */]) === "function" && _e || Object])
+    ], ListeStagePubPage);
+    return ListeStagePubPage;
+    var _a, _b, _c, _d, _e;
+}());
+
+//# sourceMappingURL=liste-stage-pub.js.map
+
+/***/ }),
+
+/***/ 110:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SettingProfilePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_Storage__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__vars__ = __webpack_require__(82);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_common_http__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_Storage__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__vars__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_common_http__ = __webpack_require__(13);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -638,7 +735,7 @@ var SettingProfilePage = (function () {
 
 /***/ }),
 
-/***/ 119:
+/***/ 122:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -651,16 +748,36 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 119;
+webpackEmptyAsyncContext.id = 122;
 
 /***/ }),
 
-/***/ 160:
+/***/ 14:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return vars; });
+var vars = (function () {
+    function vars() {
+    }
+    vars.url = "http://127.0.0.1:8001";
+    return vars;
+}());
+
+//# sourceMappingURL=vars.js.map
+
+/***/ }),
+
+/***/ 163:
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
+	"../pages/display-stage/display-stage.module": [
+		302,
+		1
+	],
 	"../pages/setting-profile/setting-profile.module": [
-		296,
+		303,
 		0
 	]
 };
@@ -675,22 +792,22 @@ function webpackAsyncContext(req) {
 webpackAsyncContext.keys = function webpackAsyncContextKeys() {
 	return Object.keys(map);
 };
-webpackAsyncContext.id = 160;
+webpackAsyncContext.id = 163;
 module.exports = webpackAsyncContext;
 
 /***/ }),
 
-/***/ 204:
+/***/ 208:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return WelcomePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__signup_signup__ = __webpack_require__(105);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__signin_signin__ = __webpack_require__(106);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_Storage__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__home_home__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__signup_signup__ = __webpack_require__(107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__signin_signin__ = __webpack_require__(108);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_Storage__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__home_home__ = __webpack_require__(44);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -745,16 +862,16 @@ var WelcomePage = (function () {
 
 /***/ }),
 
-/***/ 205:
+/***/ 209:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthServiceProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__(293);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__(300);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -854,15 +971,15 @@ var AuthServiceProvider = (function () {
 
 /***/ }),
 
-/***/ 206:
+/***/ 210:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ListeDemEntreprisePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__vars__ = __webpack_require__(82);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common_http__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__vars__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common_http__ = __webpack_require__(13);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -944,25 +1061,25 @@ var ListeDemEntreprisePage = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-liste-dem-entreprise',template:/*ion-inline-start:"E:\Projet\Ionic\gestion-projet-ionic\gestion-projet-ionic\src\pages\liste-dem-entreprise\liste-dem-entreprise.html"*/'<!--\n  Generated template for the ListeDemEntreprisePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar>\n        <button ion-button menuToggle>\n          <ion-icon name="menu"></ion-icon>\n        </button>\n        <ion-title>Liste demandes Entreprise</ion-title>\n    </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    <ion-content padding>\n        <ion-list>\n            <!--<button ion-item *ngFor="let item of Entreprises">\n                    {{item.nom}} {{item.prenom}} \n                    <div class="item-note" item-end>\n                        {{item.nom_ent}}\n                      </div> \n                  </button>-->\n\n            <ion-item *ngFor="let item of Entreprises">\n                <h2>{{item.nom}} {{item.prenom}} </h2>\n                <h1>{{item.nom_ent}}</h1>\n                <button ion-button color="secondary" (click)="updateEntreprises(item.id)" icon-start item-end>\n                    <ion-icon name=\'checkmark\'></ion-icon>\n                    Accepter\n                  </button><button ion-button color="danger" (click)="deleteEntreprises(item.id)" icon-start item-end>\n                      <ion-icon name=\'close\'></ion-icon>\n                      Refuser\n                    </button>\n            </ion-item>\n        </ion-list>\n    </ion-content>\n</ion-content>'/*ion-inline-end:"E:\Projet\Ionic\gestion-projet-ionic\gestion-projet-ionic\src\pages\liste-dem-entreprise\liste-dem-entreprise.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["a" /* HttpClient */]) === "function" && _d || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["a" /* HttpClient */]])
     ], ListeDemEntreprisePage);
     return ListeDemEntreprisePage;
-    var ListeDemEntreprisePage_1, _a, _b, _c, _d;
+    var ListeDemEntreprisePage_1;
 }());
 
 //# sourceMappingURL=liste-dem-entreprise.js.map
 
 /***/ }),
 
-/***/ 207:
+/***/ 211:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ListeEnseignantPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__vars__ = __webpack_require__(82);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common_http__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__vars__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common_http__ = __webpack_require__(13);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1006,209 +1123,12 @@ var ListeEnseignantPage = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-liste-enseignant',template:/*ion-inline-start:"E:\Projet\Ionic\gestion-projet-ionic\gestion-projet-ionic\src\pages\liste-enseignant\liste-enseignant.html"*/'<!--\n  Generated template for the ListeEnseignantPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n\n    <ion-navbar>\n        <button ion-button menuToggle>\n          <ion-icon name="menu"></ion-icon>\n        </button>\n        <ion-title>Liste Enseignants</ion-title>\n    </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    <ion-list>\n        <button ion-item *ngFor="let item of Enseignant">\n          <ion-icon ios="ios-contact" md="md-contact"></ion-icon>\n            {{item.nom}} {{item.prenom}} \n            <div class="item-note" item-end>\n                {{item.grade}}\n              </div> \n          </button>\n    </ion-list>\n</ion-content>'/*ion-inline-end:"E:\Projet\Ionic\gestion-projet-ionic\gestion-projet-ionic\src\pages\liste-enseignant\liste-enseignant.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["a" /* HttpClient */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]) === "function" && _c || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__angular_common_http__["a" /* HttpClient */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
     ], ListeEnseignantPage);
     return ListeEnseignantPage;
-    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=liste-enseignant.js.map
-
-/***/ }),
-
-/***/ 208:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ListeEtudiantPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__vars__ = __webpack_require__(82);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common_http__ = __webpack_require__(42);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-/**
- * Generated class for the ListeEtudiantPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-var ListeEtudiantPage = (function () {
-    function ListeEtudiantPage(navCtrl, navParams, http) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.http = http;
-    }
-    ListeEtudiantPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad ListeEtudiantPage');
-        this.getAllEtudiants();
-    };
-    ListeEtudiantPage.prototype.getAllEtudiants = function () {
-        var _this = this;
-        this.http.get(__WEBPACK_IMPORTED_MODULE_2__vars__["a" /* vars */].url + "/api/etudiant").subscribe(function (res) {
-            _this.Etudiants = res;
-            console.log("etu" + _this.Etudiants);
-        }, function (err) {
-            console.log("Problème de connexion");
-        });
-    };
-    ListeEtudiantPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-liste-etudiant',template:/*ion-inline-start:"E:\Projet\Ionic\gestion-projet-ionic\gestion-projet-ionic\src\pages\liste-etudiant\liste-etudiant.html"*/'<!--\n  Generated template for the ListeEtudiantPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar>\n        <button ion-button menuToggle>\n          <ion-icon name="menu"></ion-icon>\n        </button>\n        <ion-title>Liste Etudiants </ion-title>\n    </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n    <ion-list>\n        <button ion-item *ngFor="let item of Etudiants">\n          <ion-icon ios="ios-contact" md="md-contact"></ion-icon>\n            {{item.nom}} {{item.prenom}} \n            <div class="item-note" item-end>\n                {{item.niveau_etude}} {{item.specialite}}\n              </div> \n          </button>\n    </ion-list>\n</ion-content>'/*ion-inline-end:"E:\Projet\Ionic\gestion-projet-ionic\gestion-projet-ionic\src\pages\liste-etudiant\liste-etudiant.html"*/,
-        }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["a" /* HttpClient */]) === "function" && _c || Object])
-    ], ListeEtudiantPage);
-    return ListeEtudiantPage;
-    var _a, _b, _c;
-}());
-
-//# sourceMappingURL=liste-etudiant.js.map
-
-/***/ }),
-
-/***/ 209:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ListeStagePropPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-/**
- * Generated class for the ListeStagePropPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-var ListeStagePropPage = (function () {
-    function ListeStagePropPage(navCtrl, navParams) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-    }
-    ListeStagePropPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad ListeStagePropPage');
-    };
-    ListeStagePropPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-liste-stage-prop',template:/*ion-inline-start:"E:\Projet\Ionic\gestion-projet-ionic\gestion-projet-ionic\src\pages\liste-stage-prop\liste-stage-prop.html"*/'<!--\n  Generated template for the ListeStagePropPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar>\n        <button ion-button menuToggle>\n          <ion-icon name="menu"></ion-icon>\n        </button>\n        <ion-title>Liste stage proposés </ion-title>\n    </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>'/*ion-inline-end:"E:\Projet\Ionic\gestion-projet-ionic\gestion-projet-ionic\src\pages\liste-stage-prop\liste-stage-prop.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
-    ], ListeStagePropPage);
-    return ListeStagePropPage;
-}());
-
-//# sourceMappingURL=liste-stage-prop.js.map
-
-/***/ }),
-
-/***/ 210:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ListeStagePubPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-/**
- * Generated class for the ListeStagePubPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-var ListeStagePubPage = (function () {
-    function ListeStagePubPage(navCtrl, navParams) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-    }
-    ListeStagePubPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad ListeStagePubPage');
-    };
-    ListeStagePubPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-liste-stage-pub',template:/*ion-inline-start:"E:\Projet\Ionic\gestion-projet-ionic\gestion-projet-ionic\src\pages\liste-stage-pub\liste-stage-pub.html"*/'<!--\n  Generated template for the ListeStagePubPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar>\n        <button ion-button menuToggle>\n          <ion-icon name="menu"></ion-icon>\n        </button>\n        <ion-title>List Stage</ion-title>\n    </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n\n</ion-content>'/*ion-inline-end:"E:\Projet\Ionic\gestion-projet-ionic\gestion-projet-ionic\src\pages\liste-stage-pub\liste-stage-pub.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
-    ], ListeStagePubPage);
-    return ListeStagePubPage;
-}());
-
-//# sourceMappingURL=liste-stage-pub.js.map
-
-/***/ }),
-
-/***/ 211:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PubStagePage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-/**
- * Generated class for the PubStagePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-var PubStagePage = (function () {
-    function PubStagePage(navCtrl, navParams) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-    }
-    PubStagePage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad PubStagePage');
-    };
-    PubStagePage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-pub-stage',template:/*ion-inline-start:"E:\Projet\Ionic\gestion-projet-ionic\gestion-projet-ionic\src\pages\pub-stage\pub-stage.html"*/'<!--\n  Generated template for the PubStagePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar>\n        <button ion-button menuToggle>\n          <ion-icon name="menu"></ion-icon>\n        </button>\n        <ion-title>Publier Stage</ion-title>\n    </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>'/*ion-inline-end:"E:\Projet\Ionic\gestion-projet-ionic\gestion-projet-ionic\src\pages\pub-stage\pub-stage.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
-    ], PubStagePage);
-    return PubStagePage;
-}());
-
-//# sourceMappingURL=pub-stage.js.map
 
 /***/ }),
 
@@ -1216,263 +1136,11 @@ var PubStagePage = (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(213);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(234);
-
-
-Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
-//# sourceMappingURL=main.js.map
-
-/***/ }),
-
-/***/ 234:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(31);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common_http__ = __webpack_require__(42);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_Storage__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__(284);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_home_home__ = __webpack_require__(43);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_list_list__ = __webpack_require__(295);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_welcome_welcome__ = __webpack_require__(204);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_signup_signup__ = __webpack_require__(105);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_signin_signin__ = __webpack_require__(106);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_setting_profile_setting_profile__ = __webpack_require__(107);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_liste_dem_entreprise_liste_dem_entreprise__ = __webpack_require__(206);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_liste_enseignant_liste_enseignant__ = __webpack_require__(207);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_liste_entreprise_liste_entreprise__ = __webpack_require__(294);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_liste_etudiant_liste_etudiant__ = __webpack_require__(208);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_liste_stage_prop_liste_stage_prop__ = __webpack_require__(209);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_liste_stage_pub_liste_stage_pub__ = __webpack_require__(210);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_pub_stage_pub_stage__ = __webpack_require__(211);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__ionic_native_status_bar__ = __webpack_require__(200);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__ionic_native_splash_screen__ = __webpack_require__(203);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__providers_auth_service_auth_service__ = __webpack_require__(205);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var AppModule = (function () {
-    function AppModule() {
-    }
-    AppModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["I" /* NgModule */])({
-            declarations: [
-                __WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* MyApp */],
-                __WEBPACK_IMPORTED_MODULE_6__pages_home_home__["a" /* HomePage */],
-                __WEBPACK_IMPORTED_MODULE_7__pages_list_list__["a" /* ListPage */],
-                __WEBPACK_IMPORTED_MODULE_8__pages_welcome_welcome__["a" /* WelcomePage */],
-                __WEBPACK_IMPORTED_MODULE_9__pages_signup_signup__["a" /* SignupPage */],
-                __WEBPACK_IMPORTED_MODULE_10__pages_signin_signin__["a" /* SigninPage */],
-                __WEBPACK_IMPORTED_MODULE_11__pages_setting_profile_setting_profile__["a" /* SettingProfilePage */],
-                __WEBPACK_IMPORTED_MODULE_12__pages_liste_dem_entreprise_liste_dem_entreprise__["a" /* ListeDemEntreprisePage */],
-                __WEBPACK_IMPORTED_MODULE_13__pages_liste_enseignant_liste_enseignant__["a" /* ListeEnseignantPage */],
-                __WEBPACK_IMPORTED_MODULE_15__pages_liste_etudiant_liste_etudiant__["a" /* ListeEtudiantPage */],
-                __WEBPACK_IMPORTED_MODULE_16__pages_liste_stage_prop_liste_stage_prop__["a" /* ListeStagePropPage */],
-                __WEBPACK_IMPORTED_MODULE_17__pages_liste_stage_pub_liste_stage_pub__["a" /* ListeStagePubPage */],
-                __WEBPACK_IMPORTED_MODULE_18__pages_pub_stage_pub_stage__["a" /* PubStagePage */],
-                __WEBPACK_IMPORTED_MODULE_14__pages_liste_entreprise_liste_entreprise__["a" /* ListeEntreprisePage */]
-            ],
-            imports: [
-                __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* MyApp */], {}, {
-                    links: [
-                        { loadChildren: '../pages/setting-profile/setting-profile.module#SettingProfilePageModule', name: 'SettingProfilePage', segment: 'setting-profile', priority: 'low', defaultHistory: [] }
-                    ]
-                }),
-                __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["b" /* HttpClientModule */],
-                __WEBPACK_IMPORTED_MODULE_4__ionic_Storage__["a" /* IonicStorageModule */].forRoot()
-            ],
-            bootstrap: [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* IonicApp */]],
-            entryComponents: [
-                __WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* MyApp */],
-                __WEBPACK_IMPORTED_MODULE_6__pages_home_home__["a" /* HomePage */],
-                __WEBPACK_IMPORTED_MODULE_7__pages_list_list__["a" /* ListPage */],
-                __WEBPACK_IMPORTED_MODULE_8__pages_welcome_welcome__["a" /* WelcomePage */],
-                __WEBPACK_IMPORTED_MODULE_9__pages_signup_signup__["a" /* SignupPage */],
-                __WEBPACK_IMPORTED_MODULE_10__pages_signin_signin__["a" /* SigninPage */],
-                __WEBPACK_IMPORTED_MODULE_11__pages_setting_profile_setting_profile__["a" /* SettingProfilePage */],
-                __WEBPACK_IMPORTED_MODULE_12__pages_liste_dem_entreprise_liste_dem_entreprise__["a" /* ListeDemEntreprisePage */],
-                __WEBPACK_IMPORTED_MODULE_13__pages_liste_enseignant_liste_enseignant__["a" /* ListeEnseignantPage */],
-                __WEBPACK_IMPORTED_MODULE_15__pages_liste_etudiant_liste_etudiant__["a" /* ListeEtudiantPage */],
-                __WEBPACK_IMPORTED_MODULE_16__pages_liste_stage_prop_liste_stage_prop__["a" /* ListeStagePropPage */],
-                __WEBPACK_IMPORTED_MODULE_17__pages_liste_stage_pub_liste_stage_pub__["a" /* ListeStagePubPage */],
-                __WEBPACK_IMPORTED_MODULE_18__pages_pub_stage_pub_stage__["a" /* PubStagePage */],
-                __WEBPACK_IMPORTED_MODULE_14__pages_liste_entreprise_liste_entreprise__["a" /* ListeEntreprisePage */]
-            ],
-            providers: [
-                __WEBPACK_IMPORTED_MODULE_19__ionic_native_status_bar__["a" /* StatusBar */],
-                __WEBPACK_IMPORTED_MODULE_20__ionic_native_splash_screen__["a" /* SplashScreen */],
-                { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["u" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["c" /* IonicErrorHandler */] },
-                __WEBPACK_IMPORTED_MODULE_21__providers_auth_service_auth_service__["a" /* AuthServiceProvider */]
-            ]
-        })
-    ], AppModule);
-    return AppModule;
-}());
-
-//# sourceMappingURL=app.module.js.map
-
-/***/ }),
-
-/***/ 284:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(200);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(203);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_Storage__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_welcome_welcome__ = __webpack_require__(204);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_home_home__ = __webpack_require__(43);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_setting_profile_setting_profile__ = __webpack_require__(107);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_liste_dem_entreprise_liste_dem_entreprise__ = __webpack_require__(206);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_liste_enseignant_liste_enseignant__ = __webpack_require__(207);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_liste_entreprise_liste_entreprise__ = __webpack_require__(294);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_liste_etudiant_liste_etudiant__ = __webpack_require__(208);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_liste_stage_prop_liste_stage_prop__ = __webpack_require__(209);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_liste_stage_pub_liste_stage_pub__ = __webpack_require__(210);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_pub_stage_pub_stage__ = __webpack_require__(211);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var MyApp = (function () {
-    function MyApp(storage, platform, statusBar, splashScreen) {
-        this.storage = storage;
-        this.platform = platform;
-        this.statusBar = statusBar;
-        this.splashScreen = splashScreen;
-        this.rootPage = __WEBPACK_IMPORTED_MODULE_5__pages_welcome_welcome__["a" /* WelcomePage */];
-        this.user = {};
-        this.initializeApp();
-        this.pages = [
-            { title: 'Accueil', component: __WEBPACK_IMPORTED_MODULE_6__pages_home_home__["a" /* HomePage */], color: 'light', type: -1 },
-            { title: 'Liste Etudiants', component: __WEBPACK_IMPORTED_MODULE_11__pages_liste_etudiant_liste_etudiant__["a" /* ListeEtudiantPage */], color: 'light', type: 0 },
-            { title: 'Liste Enseignants', component: __WEBPACK_IMPORTED_MODULE_9__pages_liste_enseignant_liste_enseignant__["a" /* ListeEnseignantPage */], color: 'light', type: 0 },
-            { title: 'Liste Entreprise', component: __WEBPACK_IMPORTED_MODULE_10__pages_liste_entreprise_liste_entreprise__["a" /* ListeEntreprisePage */], color: 'light', type: 0 },
-            { title: 'Liste demandes Entreprise', component: __WEBPACK_IMPORTED_MODULE_8__pages_liste_dem_entreprise_liste_dem_entreprise__["a" /* ListeDemEntreprisePage */], color: 'light', type: 0 },
-            { title: 'Publier Stage', component: __WEBPACK_IMPORTED_MODULE_14__pages_pub_stage_pub_stage__["a" /* PubStagePage */], color: 'light', type: 0 },
-            { title: 'Liste Stages proposés', component: __WEBPACK_IMPORTED_MODULE_12__pages_liste_stage_prop_liste_stage_prop__["a" /* ListeStagePropPage */], color: 'light', type: 0 },
-            { title: 'Liste Stages publiés', component: __WEBPACK_IMPORTED_MODULE_13__pages_liste_stage_pub_liste_stage_pub__["a" /* ListeStagePubPage */], color: 'light', type: 0 },
-            { title: 'Mon Compte', component: __WEBPACK_IMPORTED_MODULE_7__pages_setting_profile_setting_profile__["a" /* SettingProfilePage */], color: 'light', type: 1 },
-            { title: 'Offres de Stages', component: __WEBPACK_IMPORTED_MODULE_13__pages_liste_stage_pub_liste_stage_pub__["a" /* ListeStagePubPage */], color: 'light', type: 1 },
-            { title: 'Mon Compte', component: __WEBPACK_IMPORTED_MODULE_7__pages_setting_profile_setting_profile__["a" /* SettingProfilePage */], color: 'light', type: 2 },
-            { title: 'Mon Compte', component: __WEBPACK_IMPORTED_MODULE_7__pages_setting_profile_setting_profile__["a" /* SettingProfilePage */], color: 'light', type: 3 },
-            { title: 'Publier Stage', component: __WEBPACK_IMPORTED_MODULE_14__pages_pub_stage_pub_stage__["a" /* PubStagePage */], color: 'light', type: 3 },
-            { title: 'Liste Stages proposés', component: __WEBPACK_IMPORTED_MODULE_12__pages_liste_stage_prop_liste_stage_prop__["a" /* ListeStagePropPage */], color: 'light', type: 3 },
-            { title: 'Liste Stages publiés', component: __WEBPACK_IMPORTED_MODULE_13__pages_liste_stage_pub_liste_stage_pub__["a" /* ListeStagePubPage */], color: 'light', type: 3 },
-            { title: 'Mon Compte', component: __WEBPACK_IMPORTED_MODULE_7__pages_setting_profile_setting_profile__["a" /* SettingProfilePage */], color: 'light', type: 4 },
-            { title: 'Déconnexion', component: null, color: 'light', type: -1 },
-        ];
-    }
-    MyApp.prototype.initializeApp = function () {
-        var _this = this;
-        this.platform.ready().then(function () {
-            // Okay, so the platform is ready and our plugins are available.
-            // Here you can do any higher level native things you might need.
-            _this.statusBar.styleDefault();
-            _this.splashScreen.hide();
-            _this.storage.get('user').then(function (val) {
-                _this.user = val;
-            });
-        });
-    };
-    MyApp.prototype.openPage = function (page) {
-        if (page.component) {
-            this.nav.setRoot(page.component);
-            page.color = 'dark';
-            for (var _i = 0, _a = this.pages; _i < _a.length; _i++) {
-                var p = _a[_i];
-                if (p.title == page.title) {
-                    p.color = 'dark';
-                }
-                else {
-                    p.color = 'light';
-                }
-            }
-        }
-        else {
-            this.storage.clear();
-            this.nav.setRoot(__WEBPACK_IMPORTED_MODULE_5__pages_welcome_welcome__["a" /* WelcomePage */]);
-        }
-    };
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* Nav */]),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* Nav */])
-    ], MyApp.prototype, "nav", void 0);
-    MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"E:\Projet\Ionic\gestion-projet-ionic\gestion-projet-ionic\src\app\app.html"*/'<ion-menu [content]="content">\n    <ion-header>\n        <ion-toolbar>\n            <ion-title>Menu</ion-title>\n        </ion-toolbar>\n    </ion-header>\n\n    <ion-content>\n        <ion-list>\n            <a *ngFor="let p of pages">\n                <button menuClose ion-item color={{p.color}} *ngIf="p.type==-1 || p.type==user.type" (click)="openPage(p)">\n                  {{p.title}}\n                 </button>\n            </a>\n        </ion-list>\n    </ion-content>\n\n\n\n</ion-menu>\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>'/*ion-inline-end:"E:\Projet\Ionic\gestion-projet-ionic\gestion-projet-ionic\src\app\app.html"*/
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4__ionic_Storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
-    ], MyApp);
-    return MyApp;
-}());
-
-//# sourceMappingURL=app.component.js.map
-
-/***/ }),
-
-/***/ 294:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ListeEntreprisePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__vars__ = __webpack_require__(82);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common_http__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__vars__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common_http__ = __webpack_require__(13);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1515,23 +1183,514 @@ var ListeEntreprisePage = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-liste-entreprise',template:/*ion-inline-start:"E:\Projet\Ionic\gestion-projet-ionic\gestion-projet-ionic\src\pages\liste-entreprise\liste-entreprise.html"*/'<!--\n  Generated template for the ListeEntreprisePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar>\n        <button ion-button menuToggle>\n          <ion-icon name="menu"></ion-icon>\n        </button>\n        <ion-title>Liste Entreprise</ion-title>\n    </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    <ion-list>\n        <button ion-item *ngFor="let item of Entreprises"> \n                {{item.nom}} {{item.prenom}} \n                <div class="item-note" item-end>\n                    {{item.nom_ent}}\n                  </div> \n              </button>\n    </ion-list>\n</ion-content>'/*ion-inline-end:"E:\Projet\Ionic\gestion-projet-ionic\gestion-projet-ionic\src\pages\liste-entreprise\liste-entreprise.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["a" /* HttpClient */]) === "function" && _c || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["a" /* HttpClient */]])
     ], ListeEntreprisePage);
     return ListeEntreprisePage;
-    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=liste-entreprise.js.map
 
 /***/ }),
 
-/***/ 295:
+/***/ 213:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ListeEtudiantPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__vars__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common_http__ = __webpack_require__(13);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+/**
+ * Generated class for the ListeEtudiantPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var ListeEtudiantPage = (function () {
+    function ListeEtudiantPage(navCtrl, navParams, http) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.http = http;
+    }
+    ListeEtudiantPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad ListeEtudiantPage');
+        this.getAllEtudiants();
+    };
+    ListeEtudiantPage.prototype.getAllEtudiants = function () {
+        var _this = this;
+        this.http.get(__WEBPACK_IMPORTED_MODULE_2__vars__["a" /* vars */].url + "/api/etudiant").subscribe(function (res) {
+            _this.Etudiants = res;
+            console.log("etu" + _this.Etudiants);
+        }, function (err) {
+            console.log("Problème de connexion");
+        });
+    };
+    ListeEtudiantPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-liste-etudiant',template:/*ion-inline-start:"E:\Projet\Ionic\gestion-projet-ionic\gestion-projet-ionic\src\pages\liste-etudiant\liste-etudiant.html"*/'<!--\n  Generated template for the ListeEtudiantPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar>\n        <button ion-button menuToggle>\n          <ion-icon name="menu"></ion-icon>\n        </button>\n        <ion-title>Liste Etudiants </ion-title>\n    </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n    <ion-list>\n        <button ion-item *ngFor="let item of Etudiants">\n          <ion-icon ios="ios-contact" md="md-contact"></ion-icon>\n            {{item.nom}} {{item.prenom}} \n            <div class="item-note" item-end>\n                {{item.niveau_etude}} {{item.specialite}}\n              </div> \n          </button>\n    </ion-list>\n</ion-content>'/*ion-inline-end:"E:\Projet\Ionic\gestion-projet-ionic\gestion-projet-ionic\src\pages\liste-etudiant\liste-etudiant.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["a" /* HttpClient */]])
+    ], ListeEtudiantPage);
+    return ListeEtudiantPage;
+}());
+
+//# sourceMappingURL=liste-etudiant.js.map
+
+/***/ }),
+
+/***/ 214:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PubStagePage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__vars__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__liste_stage_pub_liste_stage_pub__ = __webpack_require__(109);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_Storage__ = __webpack_require__(15);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+/**
+ * Generated class for the PubStagePage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var PubStagePage = (function () {
+    function PubStagePage(storage, http, navCtrl, navParams) {
+        this.storage = storage;
+        this.http = http;
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.stage = { sujet_stage: '', desc_stage: '', date_deb: new Date().toISOString(), date_fin: new Date().toISOString() };
+        this.data = {};
+        this.getData();
+    }
+    PubStagePage.prototype.getData = function () {
+        var _this = this;
+        this.storage.get('user').then(function (val) {
+            if (val) {
+                _this.data = val;
+                console.log(_this.data);
+            }
+        });
+    };
+    PubStagePage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad PubStagePage');
+    };
+    PubStagePage.prototype.publier = function () {
+        var _this = this;
+        this.http.post(__WEBPACK_IMPORTED_MODULE_3__vars__["a" /* vars */].url + '/api/stagePub', {
+            "sujet_stage": this.stage.sujet_stage,
+            "desc_stage": this.stage.desc_stage,
+            "date_deb": this.stage.date_deb,
+            "date_fin": this.stage.date_fin,
+            "id_prop": this.data.id
+        })
+            .subscribe(function (res) {
+            console.log("res");
+            _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_4__liste_stage_pub_liste_stage_pub__["a" /* ListeStagePubPage */]);
+        }, function (err) {
+            _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_4__liste_stage_pub_liste_stage_pub__["a" /* ListeStagePubPage */]);
+            console.log("err");
+        });
+    };
+    PubStagePage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-pub-stage',template:/*ion-inline-start:"E:\Projet\Ionic\gestion-projet-ionic\gestion-projet-ionic\src\pages\pub-stage\pub-stage.html"*/'<!--\n  Generated template for the PubStagePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar>\n        <button ion-button menuToggle>\n          <ion-icon name="menu"></ion-icon>\n        </button>\n        <ion-title>Publier Stage\n        </ion-title>\n    </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n    <div class="login-box">\n        <form (ngSubmit)="publier()" #registerForm="ngForm">\n            <ion-row>\n                <ion-col>\n                    <ion-list inset>\n\n                        <ion-item>\n                            <ion-label floating>Sujet</ion-label>\n                            <ion-input type="text" name="sujet_stage" [(ngModel)]="stage.sujet_stage" required></ion-input>\n                        </ion-item>\n\n                        <ion-item>\n                            <ion-label floating>Description</ion-label>\n                            <ion-textarea type="text" name="desc_stage" [(ngModel)]="stage.desc_stage" required></ion-textarea>\n                        </ion-item>\n\n                        <ion-item>\n                            <ion-label floating>Date Début du Stage</ion-label>\n                            <ion-datetime min="2017" max="2020-10-31" name="date_deb" [(ngModel)]="stage.date_deb" required></ion-datetime>\n                        </ion-item>\n\n                        <ion-item>\n                            <ion-label floating>Date Fin du Stage</ion-label>\n                            <ion-datetime name="date_fin" min="2017" max="2020-10-31" [(ngModel)]="stage.date_fin" required></ion-datetime>\n                        </ion-item>\n                    </ion-list>\n                </ion-col>\n            </ion-row>\n\n            <ion-row>\n                <ion-col class="signup-col">\n                    <button ion-button full type="submit" [disabled]="!registerForm.form.valid">Publier</button>\n                </ion-col>\n            </ion-row>\n        </form>\n    </div>\n</ion-content>'/*ion-inline-end:"E:\Projet\Ionic\gestion-projet-ionic\gestion-projet-ionic\src\pages\pub-stage\pub-stage.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_5__ionic_Storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
+    ], PubStagePage);
+    return PubStagePage;
+}());
+
+//# sourceMappingURL=pub-stage.js.map
+
+/***/ }),
+
+/***/ 215:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PropStagePage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_Storage__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__liste_stage_prop_liste_stage_prop__ = __webpack_require__(51);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__vars__ = __webpack_require__(14);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+/**
+ * Generated class for the PropStagePage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var PropStagePage = (function () {
+    function PropStagePage(storage, http, navCtrl, navParams) {
+        this.storage = storage;
+        this.http = http;
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.stage = { sujet_stage: '', desc_stage: '', date_deb: new Date().toISOString(), date_fin: new Date().toISOString() };
+        this.data = {};
+        this.getData();
+    }
+    PropStagePage.prototype.getData = function () {
+        var _this = this;
+        this.storage.get('user').then(function (val) {
+            if (val) {
+                _this.data = val;
+                console.log(_this.data);
+            }
+        });
+    };
+    PropStagePage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad PropStagePage');
+    };
+    PropStagePage.prototype.proposer = function () {
+        var _this = this;
+        console.log("ID Prop" + this.data.id);
+        this.http.post(__WEBPACK_IMPORTED_MODULE_5__vars__["a" /* vars */].url + '/api/stagePub', {
+            "sujet_stage": this.stage.sujet_stage,
+            "desc_stage": this.stage.desc_stage,
+            "date_deb": this.stage.date_deb,
+            "date_fin": this.stage.date_fin,
+            "id_prop": this.data.id
+        })
+            .subscribe(function (res) {
+            console.log("res");
+            _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_4__liste_stage_prop_liste_stage_prop__["a" /* ListeStagePropPage */]);
+        }, function (err) {
+            _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_4__liste_stage_prop_liste_stage_prop__["a" /* ListeStagePropPage */]);
+            console.log("err");
+        });
+    };
+    PropStagePage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-prop-stage',template:/*ion-inline-start:"E:\Projet\Ionic\gestion-projet-ionic\gestion-projet-ionic\src\pages\prop-stage\prop-stage.html"*/'<!--\n  Generated template for the PropStagePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar>\n        <button ion-button menuToggle>\n        <ion-icon name="menu"></ion-icon>\n      </button>\n        <ion-title>Proposer Stage</ion-title>\n    </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n    <div class="login-box">\n        <form (ngSubmit)="proposer()" #registerForm="ngForm">\n            <ion-row>\n                <ion-col>\n                    <ion-list inset>\n\n                        <ion-item>\n                            <ion-label floating>Sujet</ion-label>\n                            <ion-input type="text" name="sujet_stage" [(ngModel)]="stage.sujet_stage" required></ion-input>\n                        </ion-item>\n\n                        <ion-item>\n                            <ion-label floating>Description</ion-label>\n                            <ion-textarea type="text" name="desc_stage" [(ngModel)]="stage.desc_stage" required></ion-textarea>\n                        </ion-item>\n\n                        <ion-item>\n                            <ion-label floating>Date Début du Stage</ion-label>\n                            <ion-datetime min="2017" max="2020-10-31" name="date_deb" [(ngModel)]="stage.date_deb" required></ion-datetime>\n                        </ion-item>\n\n                        <ion-item>\n                            <ion-label floating>Date Fin du Stage</ion-label>\n                            <ion-datetime name="date_fin" min="2017" max="2020-10-31" [(ngModel)]="stage.date_fin" required></ion-datetime>\n                        </ion-item>\n                    </ion-list>\n                </ion-col>\n            </ion-row>\n\n            <ion-row>\n                <ion-col class="signup-col">\n                    <button ion-button full type="submit" [disabled]="!registerForm.form.valid">Publier</button>\n                </ion-col>\n            </ion-row>\n        </form>\n    </div>\n</ion-content>'/*ion-inline-end:"E:\Projet\Ionic\gestion-projet-ionic\gestion-projet-ionic\src\pages\prop-stage\prop-stage.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__ionic_Storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
+    ], PropStagePage);
+    return PropStagePage;
+}());
+
+//# sourceMappingURL=prop-stage.js.map
+
+/***/ }),
+
+/***/ 216:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(217);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(238);
+
+
+Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
+//# sourceMappingURL=main.js.map
+
+/***/ }),
+
+/***/ 238:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common_http__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_Storage__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__(291);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_home_home__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_list_list__ = __webpack_require__(301);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_welcome_welcome__ = __webpack_require__(208);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_signup_signup__ = __webpack_require__(107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_signin_signin__ = __webpack_require__(108);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_setting_profile_setting_profile__ = __webpack_require__(110);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_liste_dem_entreprise_liste_dem_entreprise__ = __webpack_require__(210);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_liste_enseignant_liste_enseignant__ = __webpack_require__(211);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_liste_entreprise_liste_entreprise__ = __webpack_require__(212);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_liste_etudiant_liste_etudiant__ = __webpack_require__(213);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_liste_stage_prop_liste_stage_prop__ = __webpack_require__(51);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_liste_stage_pub_liste_stage_pub__ = __webpack_require__(109);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_pub_stage_pub_stage__ = __webpack_require__(214);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_prop_stage_prop_stage__ = __webpack_require__(215);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_display_stage_display_stage__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__ionic_native_status_bar__ = __webpack_require__(204);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__ionic_native_splash_screen__ = __webpack_require__(207);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__providers_auth_service_auth_service__ = __webpack_require__(209);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var AppModule = (function () {
+    function AppModule() {
+    }
+    AppModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["I" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* MyApp */],
+                __WEBPACK_IMPORTED_MODULE_6__pages_home_home__["a" /* HomePage */],
+                __WEBPACK_IMPORTED_MODULE_7__pages_list_list__["a" /* ListPage */],
+                __WEBPACK_IMPORTED_MODULE_8__pages_welcome_welcome__["a" /* WelcomePage */],
+                __WEBPACK_IMPORTED_MODULE_9__pages_signup_signup__["a" /* SignupPage */],
+                __WEBPACK_IMPORTED_MODULE_10__pages_signin_signin__["a" /* SigninPage */],
+                __WEBPACK_IMPORTED_MODULE_11__pages_setting_profile_setting_profile__["a" /* SettingProfilePage */],
+                __WEBPACK_IMPORTED_MODULE_12__pages_liste_dem_entreprise_liste_dem_entreprise__["a" /* ListeDemEntreprisePage */],
+                __WEBPACK_IMPORTED_MODULE_13__pages_liste_enseignant_liste_enseignant__["a" /* ListeEnseignantPage */],
+                __WEBPACK_IMPORTED_MODULE_15__pages_liste_etudiant_liste_etudiant__["a" /* ListeEtudiantPage */],
+                __WEBPACK_IMPORTED_MODULE_16__pages_liste_stage_prop_liste_stage_prop__["a" /* ListeStagePropPage */],
+                __WEBPACK_IMPORTED_MODULE_17__pages_liste_stage_pub_liste_stage_pub__["a" /* ListeStagePubPage */],
+                __WEBPACK_IMPORTED_MODULE_18__pages_pub_stage_pub_stage__["a" /* PubStagePage */],
+                __WEBPACK_IMPORTED_MODULE_19__pages_prop_stage_prop_stage__["a" /* PropStagePage */],
+                __WEBPACK_IMPORTED_MODULE_14__pages_liste_entreprise_liste_entreprise__["a" /* ListeEntreprisePage */],
+                __WEBPACK_IMPORTED_MODULE_20__pages_display_stage_display_stage__["a" /* DisplayStagePage */]
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
+                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* MyApp */], {}, {
+                    links: [
+                        { loadChildren: '../pages/display-stage/display-stage.module#DisplayStagePageModule', name: 'DisplayStagePage', segment: 'display-stage', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/setting-profile/setting-profile.module#SettingProfilePageModule', name: 'SettingProfilePage', segment: 'setting-profile', priority: 'low', defaultHistory: [] }
+                    ]
+                }),
+                __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["b" /* HttpClientModule */],
+                __WEBPACK_IMPORTED_MODULE_4__ionic_Storage__["a" /* IonicStorageModule */].forRoot()
+            ],
+            bootstrap: [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* IonicApp */]],
+            entryComponents: [
+                __WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* MyApp */],
+                __WEBPACK_IMPORTED_MODULE_6__pages_home_home__["a" /* HomePage */],
+                __WEBPACK_IMPORTED_MODULE_7__pages_list_list__["a" /* ListPage */],
+                __WEBPACK_IMPORTED_MODULE_8__pages_welcome_welcome__["a" /* WelcomePage */],
+                __WEBPACK_IMPORTED_MODULE_9__pages_signup_signup__["a" /* SignupPage */],
+                __WEBPACK_IMPORTED_MODULE_10__pages_signin_signin__["a" /* SigninPage */],
+                __WEBPACK_IMPORTED_MODULE_11__pages_setting_profile_setting_profile__["a" /* SettingProfilePage */],
+                __WEBPACK_IMPORTED_MODULE_12__pages_liste_dem_entreprise_liste_dem_entreprise__["a" /* ListeDemEntreprisePage */],
+                __WEBPACK_IMPORTED_MODULE_13__pages_liste_enseignant_liste_enseignant__["a" /* ListeEnseignantPage */],
+                __WEBPACK_IMPORTED_MODULE_15__pages_liste_etudiant_liste_etudiant__["a" /* ListeEtudiantPage */],
+                __WEBPACK_IMPORTED_MODULE_16__pages_liste_stage_prop_liste_stage_prop__["a" /* ListeStagePropPage */],
+                __WEBPACK_IMPORTED_MODULE_17__pages_liste_stage_pub_liste_stage_pub__["a" /* ListeStagePubPage */],
+                __WEBPACK_IMPORTED_MODULE_18__pages_pub_stage_pub_stage__["a" /* PubStagePage */],
+                __WEBPACK_IMPORTED_MODULE_19__pages_prop_stage_prop_stage__["a" /* PropStagePage */],
+                __WEBPACK_IMPORTED_MODULE_14__pages_liste_entreprise_liste_entreprise__["a" /* ListeEntreprisePage */],
+                __WEBPACK_IMPORTED_MODULE_20__pages_display_stage_display_stage__["a" /* DisplayStagePage */]
+            ],
+            providers: [
+                __WEBPACK_IMPORTED_MODULE_21__ionic_native_status_bar__["a" /* StatusBar */],
+                __WEBPACK_IMPORTED_MODULE_22__ionic_native_splash_screen__["a" /* SplashScreen */],
+                { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["u" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["c" /* IonicErrorHandler */] },
+                __WEBPACK_IMPORTED_MODULE_23__providers_auth_service_auth_service__["a" /* AuthServiceProvider */]
+            ]
+        })
+    ], AppModule);
+    return AppModule;
+}());
+
+//# sourceMappingURL=app.module.js.map
+
+/***/ }),
+
+/***/ 291:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(204);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(207);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_Storage__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_welcome_welcome__ = __webpack_require__(208);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_home_home__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_setting_profile_setting_profile__ = __webpack_require__(110);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_liste_dem_entreprise_liste_dem_entreprise__ = __webpack_require__(210);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_liste_enseignant_liste_enseignant__ = __webpack_require__(211);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_liste_entreprise_liste_entreprise__ = __webpack_require__(212);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_liste_etudiant_liste_etudiant__ = __webpack_require__(213);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_liste_stage_prop_liste_stage_prop__ = __webpack_require__(51);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_liste_stage_pub_liste_stage_pub__ = __webpack_require__(109);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_pub_stage_pub_stage__ = __webpack_require__(214);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_prop_stage_prop_stage__ = __webpack_require__(215);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var MyApp = (function () {
+    function MyApp(storage, platform, statusBar, splashScreen) {
+        this.storage = storage;
+        this.platform = platform;
+        this.statusBar = statusBar;
+        this.splashScreen = splashScreen;
+        this.rootPage = __WEBPACK_IMPORTED_MODULE_5__pages_welcome_welcome__["a" /* WelcomePage */];
+        this.user = {};
+        this.initializeApp();
+        this.pages = [
+            { title: 'Accueil', component: __WEBPACK_IMPORTED_MODULE_6__pages_home_home__["a" /* HomePage */], color: 'light', type: -1 },
+            { title: 'Liste Etudiants', component: __WEBPACK_IMPORTED_MODULE_11__pages_liste_etudiant_liste_etudiant__["a" /* ListeEtudiantPage */], color: 'light', type: 0 },
+            { title: 'Liste Enseignants', component: __WEBPACK_IMPORTED_MODULE_9__pages_liste_enseignant_liste_enseignant__["a" /* ListeEnseignantPage */], color: 'light', type: 0 },
+            { title: 'Liste Entreprise', component: __WEBPACK_IMPORTED_MODULE_10__pages_liste_entreprise_liste_entreprise__["a" /* ListeEntreprisePage */], color: 'light', type: 0 },
+            { title: 'Liste demandes Entreprise', component: __WEBPACK_IMPORTED_MODULE_8__pages_liste_dem_entreprise_liste_dem_entreprise__["a" /* ListeDemEntreprisePage */], color: 'light', type: 0 },
+            { title: 'Publier Stage', component: __WEBPACK_IMPORTED_MODULE_14__pages_pub_stage_pub_stage__["a" /* PubStagePage */], color: 'light', type: 0 },
+            { title: 'Liste Stages proposés', component: __WEBPACK_IMPORTED_MODULE_12__pages_liste_stage_prop_liste_stage_prop__["a" /* ListeStagePropPage */], color: 'light', type: 0 },
+            { title: 'Liste Stages publiés', component: __WEBPACK_IMPORTED_MODULE_13__pages_liste_stage_pub_liste_stage_pub__["a" /* ListeStagePubPage */], color: 'light', type: 0 },
+            { title: 'Mon Compte', component: __WEBPACK_IMPORTED_MODULE_7__pages_setting_profile_setting_profile__["a" /* SettingProfilePage */], color: 'light', type: 1 },
+            { title: 'Offres de Stages', component: __WEBPACK_IMPORTED_MODULE_13__pages_liste_stage_pub_liste_stage_pub__["a" /* ListeStagePubPage */], color: 'light', type: 1 },
+            { title: 'Mon Compte', component: __WEBPACK_IMPORTED_MODULE_7__pages_setting_profile_setting_profile__["a" /* SettingProfilePage */], color: 'light', type: 2 },
+            { title: 'Mon Compte', component: __WEBPACK_IMPORTED_MODULE_7__pages_setting_profile_setting_profile__["a" /* SettingProfilePage */], color: 'light', type: 3 },
+            { title: 'Proposer Stage', component: __WEBPACK_IMPORTED_MODULE_15__pages_prop_stage_prop_stage__["a" /* PropStagePage */], color: 'light', type: 3 },
+            { title: 'Liste Stages proposés', component: __WEBPACK_IMPORTED_MODULE_12__pages_liste_stage_prop_liste_stage_prop__["a" /* ListeStagePropPage */], color: 'light', type: 3 },
+            { title: 'Liste Stages publiés', component: __WEBPACK_IMPORTED_MODULE_13__pages_liste_stage_pub_liste_stage_pub__["a" /* ListeStagePubPage */], color: 'light', type: 3 },
+            { title: 'Mon Compte', component: __WEBPACK_IMPORTED_MODULE_7__pages_setting_profile_setting_profile__["a" /* SettingProfilePage */], color: 'light', type: 4 },
+            { title: 'Déconnexion', component: null, color: 'light', type: -1 },
+        ];
+    }
+    MyApp.prototype.initializeApp = function () {
+        var _this = this;
+        this.platform.ready().then(function () {
+            // Okay, so the platform is ready and our plugins are available.
+            // Here you can do any higher level native things you might need.
+            _this.statusBar.styleDefault();
+            _this.splashScreen.hide();
+            _this.storage.get('user').then(function (val) {
+                _this.user = val;
+            });
+        });
+    };
+    MyApp.prototype.openPage = function (page) {
+        if (page.component) {
+            this.nav.setRoot(page.component);
+            page.color = 'dark';
+            for (var _i = 0, _a = this.pages; _i < _a.length; _i++) {
+                var p = _a[_i];
+                if (p.title == page.title) {
+                    p.color = 'dark';
+                }
+                else {
+                    p.color = 'light';
+                }
+            }
+        }
+        else {
+            this.storage.clear();
+            this.nav.setRoot(__WEBPACK_IMPORTED_MODULE_5__pages_welcome_welcome__["a" /* WelcomePage */]);
+        }
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* Nav */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* Nav */])
+    ], MyApp.prototype, "nav", void 0);
+    MyApp = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"E:\Projet\Ionic\gestion-projet-ionic\gestion-projet-ionic\src\app\app.html"*/'<ion-menu [content]="content">\n    <ion-header>\n        <ion-toolbar>\n            <ion-title>Menu</ion-title>\n        </ion-toolbar>\n    </ion-header>\n\n    <ion-content>\n        <ion-list>\n            <a *ngFor="let p of pages">\n                <button menuClose ion-item color={{p.color}} *ngIf="p.type==-1 || p.type==user?.type" (click)="openPage(p)">\n                  {{p.title}}\n                 </button>\n            </a>\n        </ion-list>\n    </ion-content>\n\n\n\n</ion-menu>\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>'/*ion-inline-end:"E:\Projet\Ionic\gestion-projet-ionic\gestion-projet-ionic\src\app\app.html"*/
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4__ionic_Storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
+    ], MyApp);
+    return MyApp;
+}());
+
+//# sourceMappingURL=app.component.js.map
+
+/***/ }),
+
+/***/ 301:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ListPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1582,14 +1741,14 @@ var ListPage = (function () {
 
 /***/ }),
 
-/***/ 43:
+/***/ 44:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_Storage__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_Storage__ = __webpack_require__(15);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1631,21 +1790,245 @@ var HomePage = (function () {
 
 /***/ }),
 
-/***/ 82:
+/***/ 51:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return vars; });
-var vars = (function () {
-    function vars() {
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ListeStagePropPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__vars__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__display_stage_display_stage__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_Storage__ = __webpack_require__(15);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+/**
+ * Generated class for the ListeStagePropPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var ListeStagePropPage = (function () {
+    function ListeStagePropPage(storage, loadingCtrl, navCtrl, navParams, http) {
+        this.storage = storage;
+        this.loadingCtrl = loadingCtrl;
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.http = http;
+        this.data = {};
+        this.lien = "/api/stage/0";
+        this.getData();
     }
-    vars.url = "http://127.0.0.1:8001";
-    return vars;
+    ListeStagePropPage_1 = ListeStagePropPage;
+    ListeStagePropPage.prototype.getData = function () {
+        var _this = this;
+        this.storage.get('user').then(function (val) {
+            if (val) {
+                _this.data = val;
+                console.log(_this.data);
+                _this.getAllStages();
+            }
+        });
+    };
+    ListeStagePropPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad ListeStagesPage');
+    };
+    ListeStagePropPage.prototype.getAllStages = function () {
+        var _this = this;
+        if (this.data.type == 3)
+            this.lien = "/api/stageByProp/" + this.data.id;
+        console.log(this.lien);
+        this.http.get(__WEBPACK_IMPORTED_MODULE_3__vars__["a" /* vars */].url + this.lien).subscribe(function (res) {
+            _this.Stages = res;
+            console.log("Stages" + _this.Stages);
+        }, function (err) {
+            console.log("Problème de connexion");
+        });
+    };
+    ListeStagePropPage.prototype.updateStages = function (id) {
+        var _this = this;
+        this.showLoading();
+        this.http.put(__WEBPACK_IMPORTED_MODULE_3__vars__["a" /* vars */].url + "/api/stageValid/" + id, {
+            "etat_proposition": 1,
+        })
+            .subscribe(function (val) {
+            console.log("POST call successful value returned in body", val);
+        }, function (response) {
+            _this.loading.dismiss();
+            _this.navCtrl.setRoot(ListeStagePropPage_1);
+            console.log("POST call in error", response);
+        }, function () {
+            console.log("The POST observable is now completed.");
+        });
+    };
+    ListeStagePropPage.prototype.deleteStages = function (id) {
+        var _this = this;
+        this.showLoading();
+        this.http.delete(__WEBPACK_IMPORTED_MODULE_3__vars__["a" /* vars */].url + "/api/stage/" + id)
+            .subscribe(function (val) {
+            console.log("POST call successful value returned in body", val);
+        }, function (response) {
+            _this.loading.dismiss();
+            _this.navCtrl.setRoot(ListeStagePropPage_1);
+            console.log("POST call in error", response);
+        }, function () {
+            console.log("The POST observable is now completed.");
+        });
+    };
+    ListeStagePropPage.prototype.displayStages = function (item, action) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__display_stage_display_stage__["a" /* DisplayStagePage */], {
+            'item': item,
+            'action': action
+        });
+    };
+    ListeStagePropPage.prototype.showLoading = function () {
+        this.loading = this.loadingCtrl.create({
+            content: 'Please wait...',
+            dismissOnPageChange: true
+        });
+        this.loading.present();
+    };
+    ListeStagePropPage = ListeStagePropPage_1 = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-liste-stage-prop',template:/*ion-inline-start:"E:\Projet\Ionic\gestion-projet-ionic\gestion-projet-ionic\src\pages\liste-stage-prop\liste-stage-prop.html"*/'<!--\n  Generated template for the ListeStagePropPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar>\n        <button ion-button menuToggle>\n          <ion-icon name="menu"></ion-icon>\n        </button>\n        <ion-title>Liste stage proposés </ion-title>\n    </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n    <ion-content padding>\n        <ion-list>\n\n            <div *ngFor="let item of Stages">\n                <ion-item *ngIf="item?.etat_proposition==0">\n                    <strong>Sujet :</strong> {{item.sujet_stage}} <br>\n                    <strong>Description :</strong><br> {{item.desc_stage}}...\n                    <button ion-button color="light" (click)="displayStages(item,0)" icon-only icon-start item-end>\n                    <ion-icon ios="ios-eye" md="md-eye"></ion-icon>\n                  </button><br>\n                    <button ion-button color="secondary" (click)="updateStages(item.id)" *ngIf="data.type!=3" icon-only icon-start item-end>\n                  <ion-icon name=\'checkmark\'></ion-icon>\n                </button>\n                    <button ion-button color="danger" (click)="deleteStages(item.id)" icon-only icon-start item-end>\n                    <ion-icon name=\'close\'></ion-icon>\n                  </button>\n\n                </ion-item>\n            </div>\n        </ion-list>\n    </ion-content>\n</ion-content>'/*ion-inline-end:"E:\Projet\Ionic\gestion-projet-ionic\gestion-projet-ionic\src\pages\liste-stage-prop\liste-stage-prop.html"*/,
+        }),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_5__ionic_Storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__ionic_Storage__["b" /* Storage */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */]) === "function" && _e || Object])
+    ], ListeStagePropPage);
+    return ListeStagePropPage;
+    var ListeStagePropPage_1, _a, _b, _c, _d, _e;
 }());
 
-//# sourceMappingURL=vars.js.map
+//# sourceMappingURL=liste-stage-prop.js.map
+
+/***/ }),
+
+/***/ 56:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DisplayStagePage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__vars__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__liste_stage_prop_liste_stage_prop__ = __webpack_require__(51);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_Storage__ = __webpack_require__(15);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+/**
+ * Generated class for the DisplayStagePage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var DisplayStagePage = (function () {
+    function DisplayStagePage(storage, viewCtrl, loadingCtrl, navCtrl, navParams, http) {
+        this.storage = storage;
+        this.viewCtrl = viewCtrl;
+        this.loadingCtrl = loadingCtrl;
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.http = http;
+        this.data = {};
+        this.item = navParams.get('item');
+        this.action = navParams.get('action');
+        this.getData();
+    }
+    DisplayStagePage.prototype.getData = function () {
+        var _this = this;
+        this.storage.get('user').then(function (val) {
+            if (val) {
+                _this.data = val;
+                console.log(_this.data);
+            }
+        });
+    };
+    DisplayStagePage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad DisplayStagePage');
+    };
+    DisplayStagePage.prototype.updateStages = function (id) {
+        var _this = this;
+        this.showLoading();
+        this.http.put(__WEBPACK_IMPORTED_MODULE_3__vars__["a" /* vars */].url + "/api/stageValid/" + id, {
+            "etat_proposition": 1,
+        })
+            .subscribe(function (val) {
+            console.log("POST call successful value returned in body", val);
+        }, function (response) {
+            _this.loading.dismiss();
+            _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_4__liste_stage_prop_liste_stage_prop__["a" /* ListeStagePropPage */]);
+            console.log("POST call in error", response);
+        }, function () {
+            console.log("The POST observable is now completed.");
+        });
+    };
+    DisplayStagePage.prototype.toPDF = function () {
+    };
+    DisplayStagePage.prototype.deleteStages = function (id) {
+        var _this = this;
+        this.showLoading();
+        this.http.delete(__WEBPACK_IMPORTED_MODULE_3__vars__["a" /* vars */].url + "/api/stage/" + id)
+            .subscribe(function (val) {
+            console.log("POST call successful value returned in body", val);
+        }, function (response) {
+            _this.loading.dismiss();
+            _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_4__liste_stage_prop_liste_stage_prop__["a" /* ListeStagePropPage */]);
+            console.log("POST call in error", response);
+        }, function () {
+            console.log("The POST observable is now completed.");
+        });
+    };
+    DisplayStagePage.prototype.return = function () {
+        // this.navCtrl.setRoot(ListeStagePropPage)
+        this.viewCtrl.dismiss();
+    };
+    DisplayStagePage.prototype.showLoading = function () {
+        this.loading = this.loadingCtrl.create({
+            content: 'Please wait...',
+            dismissOnPageChange: true
+        });
+        this.loading.present();
+    };
+    DisplayStagePage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-display-stage',template:/*ion-inline-start:"E:\Projet\Ionic\gestion-projet-ionic\gestion-projet-ionic\src\pages\display-stage\display-stage.html"*/'<!--\n  Generated template for the DisplayStagePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar>\n        <ion-title>Détail Stage</ion-title>\n    </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    <h1>Sujet</h1>\n    {{item.sujet_stage}}\n    <h1>Description</h1>\n    {{item.desc_stage}}\n    <h1>Date debut</h1>\n    {{item.date_deb}}\n    <h1>Date fin</h1>\n    {{item.date_fin}}\n    <h1>Entreprise</h1>\n    {{item.nom_ent}}\n    <h1>Email</h1>\n    {{item.email}}\n\n    <br>\n    <br>\n    <div *ngIf="action==0">\n        <div *ngIf="data.type!=3">\n            <button ion-button color="secondary" (click)="updateStages(item.id)" block icon-start item-end>\n        <ion-icon name=\'checkmark\'></ion-icon>\n        Accepter\n      </button>\n        </div>\n        <button ion-button color="danger" (click)="deleteStages(item.id)" block icon-start item-end>\n        <ion-icon name=\'close\'></ion-icon>\n        Refuser\n      </button>\n    </div>\n    <div *ngIf="data.type==1">\n        <button ion-button color="secondary" (click)="toPDF()" block icon-start item-end>\n        <ion-icon ios="ios-download" md="md-download"></ion-icon>\n        Telecharge PDF\n      </button>\n    </div>\n    <button ion-button color="light" (click)="return()" block icon-start item-end>\n      <ion-icon ios="ios-arrow-back" md="md-arrow-back"></ion-icon>\n  Return\n  </button>\n</ion-content>'/*ion-inline-end:"E:\Projet\Ionic\gestion-projet-ionic\gestion-projet-ionic\src\pages\display-stage\display-stage.html"*/,
+        }),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_5__ionic_Storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__ionic_Storage__["b" /* Storage */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* ViewController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */]) === "function" && _f || Object])
+    ], DisplayStagePage);
+    return DisplayStagePage;
+    var _a, _b, _c, _d, _e, _f;
+}());
+
+//# sourceMappingURL=display-stage.js.map
 
 /***/ })
 
-},[212]);
+},[216]);
 //# sourceMappingURL=main.js.map

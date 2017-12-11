@@ -15,5 +15,18 @@
 </ion-header>
 
 <ion-content padding>
+    <ion-content padding>
+        <ion-list>
 
+            <div *ngFor="let item of Stages">
+                <ion-item *ngIf="item.etat_proposition==1">
+                    <strong>Sujet :</strong> {{item.sujet_stage}} <br>
+                    <strong>Description :</strong><br> {{item.desc_stage}}...
+                    <button ion-button color="light" (click)="displayStages(item,1)" icon-only icon-start item-end>
+                    <ion-icon ios="ios-eye" md="md-eye"></ion-icon>
+                  </button>
+                </ion-item>
+            </div>
+        </ion-list>
+    </ion-content>
 </ion-content>
