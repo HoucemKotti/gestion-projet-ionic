@@ -14,20 +14,21 @@
 
 
 <ion-content padding>
-    <h1>Sujet</h1>
-    {{item.sujet_stage}}
-    <h1>Description</h1>
-    {{item.desc_stage}}
-    <h1>Date debut</h1>
-    {{item.date_deb}}
-    <h1>Date fin</h1>
-    {{item.date_fin}}
-    <h1>Entreprise</h1>
-    {{item.nom_ent}}
-    <h1>Email</h1>
-    {{item.email}}
+    <div id="print-section">
+        <h1>Sujet</h1>
+        {{item.sujet_stage}}
+        <h1>Description</h1>
+        {{item.desc_stage}}
+        <h1>Date debut</h1>
+        {{item.date_deb}}
+        <h1>Date fin</h1>
+        {{item.date_fin}}
+        <h1>Entreprise</h1>
+        {{item.nom_ent}}
+        <h1>Email</h1>
+        {{item.email}}
 
-    <br>
+    </div><br>
     <br>
     <div *ngIf="action==0">
         <div *ngIf="data.type!=3">

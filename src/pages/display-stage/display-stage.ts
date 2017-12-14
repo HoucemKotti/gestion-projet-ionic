@@ -6,9 +6,12 @@ import { ListeStagePropPage } from '../liste-stage-prop/liste-stage-prop';
 
 import { Storage } from '@ionic/Storage';
 
-import * as jsmin from  'pdfmake/build/pdfmake.min';
+import * as jsmin from 'pdfmake/build/pdfmake.min';
 import * as fonta from 'pdfmake/build/vfs_fonts';
 import * as pdfmake from 'pdfmake/build/pdfmake';
+
+import * as jsPDF from 'jspdf';
+
 /** 
  * Generated class for the DisplayStagePage page.
  *
@@ -73,7 +76,9 @@ export class DisplayStagePage {
   }
 
   toPDF() {
-
+    var doc = new jsPDF();
+    doc.fromHTML('<h1>Sujet</h1>'+this.item.sujet_stage+'<h1>Description</h1>'+this.item.desc_stage+'<h1>Date debut</h1>'+this.item.date_deb+'<h1>Date fin</h1>'+this.item.date_fin+'<h1>Entreprise</h1>'+this.item.nom_ent+'<h1>Email</h1>'+this.item.email);
+    doc.save('demande-stage.pdf');
   }
 
   deleteStages(id) {

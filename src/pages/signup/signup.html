@@ -67,17 +67,32 @@
             </ion-item>
             <ion-item>
                 <ion-label color="primary">Cycle </ion-label>
-                <ion-input type="text" [(ngModel)]="cy_etud" name="cy_etud" required></ion-input>
-            </ion-item>
-            <ion-item>
-                <ion-label color="primary">Niveau d'étude</ion-label>
-                <ion-input type="text" [(ngModel)]="niv_etud" name="niv_etud" required></ion-input>
+                <ion-select [(ngModel)]="cy_etud" name="cy_etud">
+                    <ion-option value="Licence"> Licence </ion-option>
+                    <ion-option value="Master"> Master </ion-option>
+                    <ion-option value="Ingénieur"> Ingénieur </ion-option>
+                </ion-select>
             </ion-item>
             <ion-item>
                 <ion-label color="primary">Specialite</ion-label>
-                <ion-input type="text" [(ngModel)]="specialite" name="specialite"></ion-input>
+                <ion-select [(ngModel)]="specialite" name="specialite" required>
+                    <ion-option disabled>---- Spécialité ----</ion-option>
+                    <ion-option value="LATMW">LATMW</ion-option>
+                    <ion-option value="LFI">LFI</ion-option>
+                    <ion-option value="Master de Recherche">Master de Recherche</ion-option>
+                    <ion-option value="ingénieur">ingénieur</ion-option>
+                </ion-select>
             </ion-item>
 
+            <ion-item>
+                <ion-label color="primary">Niveau d'étude</ion-label>
+                <ion-select [(ngModel)]="niv_etud" name="niv_etud" required>
+                    <ion-option disabled>---- Niveau d'études ----</ion-option>
+                    <ion-option value="1">1</ion-option>
+                    <ion-option value="2">2</ion-option>
+                    <ion-option value="3">3</ion-option>
+                </ion-select>
+            </ion-item>
             <div *ngIf='erreur != ""'>
                 <ion-card>
                     <ion-card-content>
